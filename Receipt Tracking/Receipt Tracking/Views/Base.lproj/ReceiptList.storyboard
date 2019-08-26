@@ -22,8 +22,8 @@
                                 <rect key="frame" x="0.0" y="140" width="414" height="722"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RecieptCell" id="FPs-WN-lOf">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RecieptCell" rowHeight="60" id="FPs-WN-lOf" customClass="ReceiptTableViewCell" customModule="Receipt_Tracking" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FPs-WN-lOf" id="A6k-7Q-fP8">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="59.5"/>
@@ -71,7 +71,7 @@
                                             <outlet property="categoryLabel" destination="7Pd-sr-NIQ" id="R8R-pJ-Ycb"/>
                                             <outlet property="dateLabel" destination="wWx-cW-KQN" id="uef-Ai-N1Q"/>
                                             <outlet property="merchantLabel" destination="sMz-Nc-fjM" id="TE3-un-ogh"/>
-                                            <segue destination="G4Y-sA-sUP" kind="show" id="tgj-bl-RVp"/>
+                                            <segue destination="G4Y-sA-sUP" kind="show" identifier="ToReceiptDetailSegue" id="tgj-bl-RVp"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -89,11 +89,12 @@
                     <navigationItem key="navigationItem" title="Receipts" id="v2k-wG-Yat">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xvD-78-9O5">
                             <connections>
-                                <segue destination="5yo-KU-eif" kind="presentation" id="3oO-Ng-Q2z"/>
+                                <segue destination="5yo-KU-eif" kind="presentation" identifier="AddReceiptSegue" id="3oO-Ng-Q2z"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="tableView" destination="kDY-O6-uZl" id="Z3w-Bd-4Tl"/>
                         <segue destination="uEI-7H-bEG" kind="presentation" id="kJZ-Hu-m5C"/>
                     </connections>
                 </viewController>

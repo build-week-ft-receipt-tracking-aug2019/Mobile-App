@@ -30,7 +30,7 @@ class ReceiptTableViewCell: UITableViewCell {
 		guard let receipt = receipt, let date = receipt.date, let amountSpent = receipt.amountSpent else { return }
 
 		merchantLabel.text = receipt.merchant
-		dateLabel.text = String(date)"
+		dateLabel.text = "\(date)"
 		categoryLabel.text = receipt.category
 		amountSpentLabel.text = "\(amountSpent)"
 	}

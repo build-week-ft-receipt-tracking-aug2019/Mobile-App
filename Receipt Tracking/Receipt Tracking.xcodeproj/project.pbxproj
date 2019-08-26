@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		32D6B92E23109CFE006E75B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B92D23109CFE006E75B2 /* AppDelegate.swift */; };
 		32D6B93023109CFE006E75B2 /* ReceiptListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B92F23109CFE006E75B2 /* ReceiptListViewController.swift */; };
-		32D6B93323109CFE006E75B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D6B93123109CFE006E75B2 /* Main.storyboard */; };
+		32D6B93323109CFE006E75B2 /* ReceiptList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D6B93123109CFE006E75B2 /* ReceiptList.storyboard */; };
 		32D6B93523109D00006E75B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32D6B93423109D00006E75B2 /* Assets.xcassets */; };
 		32D6B93823109D00006E75B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D6B93623109D00006E75B2 /* LaunchScreen.storyboard */; };
 		32D6B94423141E4C006E75B2 /* Receipt Tracking.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B94223141E4C006E75B2 /* Receipt Tracking.xcdatamodeld */; };
@@ -38,7 +38,7 @@
 		32D6B92A23109CFE006E75B2 /* Receipt Tracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Receipt Tracking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		32D6B92D23109CFE006E75B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32D6B92F23109CFE006E75B2 /* ReceiptListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptListViewController.swift; sourceTree = "<group>"; };
-		32D6B93223109CFE006E75B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		32D6B93223109CFE006E75B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ReceiptList.storyboard; sourceTree = "<group>"; };
 		32D6B93423109D00006E75B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32D6B93723109D00006E75B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32D6B93923109D00006E75B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				32D6B94E23144177006E75B2 /* Login.storyboard */,
-				32D6B93123109CFE006E75B2 /* Main.storyboard */,
+				32D6B93123109CFE006E75B2 /* ReceiptList.storyboard */,
 				32D6B95823144382006E75B2 /* AddReceipt.storyboard */,
 				32D6B93623109D00006E75B2 /* LaunchScreen.storyboard */,
 				32D6B9532314426F006E75B2 /* ReceiptDetail.storyboard */,
@@ -246,7 +246,7 @@
 				32D6B93823109D00006E75B2 /* LaunchScreen.storyboard in Resources */,
 				32D6B95923144382006E75B2 /* AddReceipt.storyboard in Resources */,
 				32D6B93523109D00006E75B2 /* Assets.xcassets in Resources */,
-				32D6B93323109CFE006E75B2 /* Main.storyboard in Resources */,
+				32D6B93323109CFE006E75B2 /* ReceiptList.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,12 +282,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		32D6B93123109CFE006E75B2 /* Main.storyboard */ = {
+		32D6B93123109CFE006E75B2 /* ReceiptList.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				32D6B93223109CFE006E75B2 /* Base */,
 			);
-			name = Main.storyboard;
+			name = ReceiptList.storyboard;
 			sourceTree = "<group>";
 		};
 		32D6B93623109D00006E75B2 /* LaunchScreen.storyboard */ = {
