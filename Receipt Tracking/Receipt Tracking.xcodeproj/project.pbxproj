@@ -107,6 +107,7 @@
 				32D6B94C23143F99006E75B2 /* LoginViewController.swift */,
 				32D6B9512314423E006E75B2 /* ReceiptDetailViewController.swift */,
 				32D6B956231442F1006E75B2 /* AddReceiptViewController.swift */,
+				32D6B95F2314472E006E75B2 /* Helpers */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -233,6 +234,7 @@
 				32D6B95B231445F9006E75B2 /* ModelController.swift in Sources */,
 				38C2012D2314713E00775092 /* LoginView.swift in Sources */,
 				32D6B92E23109CFE006E75B2 /* AppDelegate.swift in Sources */,
+				32D6B95E23144698006E75B2 /* CustomButton.swift in Sources */,
 				32D6B94923142526006E75B2 /* Receipt+Convenience.swift in Sources */,
 				32D6B9522314423E006E75B2 /* ReceiptDetailViewController.swift in Sources */,
 				32D6B94723142444006E75B2 /* CoreDataStack.swift in Sources */,
