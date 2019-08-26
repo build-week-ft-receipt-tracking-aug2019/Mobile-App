@@ -12,6 +12,8 @@
 		32D6B93323109CFE006E75B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D6B93123109CFE006E75B2 /* Main.storyboard */; };
 		32D6B93523109D00006E75B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32D6B93423109D00006E75B2 /* Assets.xcassets */; };
 		32D6B93823109D00006E75B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D6B93623109D00006E75B2 /* LaunchScreen.storyboard */; };
+		32D6B94423141E4C006E75B2 /* Receipt Tracking.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B94223141E4C006E75B2 /* Receipt Tracking.xcdatamodeld */; };
+		32D6B94723142444006E75B2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B94623142444006E75B2 /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		32D6B93423109D00006E75B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32D6B93723109D00006E75B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32D6B93923109D00006E75B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32D6B94323141E4C006E75B2 /* Receipt Tracking.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Receipt Tracking.xcdatamodel"; sourceTree = "<group>"; };
+		32D6B94623142444006E75B2 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +43,7 @@
 			isa = PBXGroup;
 			children = (
 				32D6B92C23109CFE006E75B2 /* Receipt Tracking */,
+				32D6B93F23141DE5006E75B2 /* Resources */,
 				32D6B92B23109CFE006E75B2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,14 +59,47 @@
 		32D6B92C23109CFE006E75B2 /* Receipt Tracking */ = {
 			isa = PBXGroup;
 			children = (
-				32D6B92D23109CFE006E75B2 /* AppDelegate.swift */,
-				32D6B92F23109CFE006E75B2 /* ViewController.swift */,
-				32D6B93123109CFE006E75B2 /* Main.storyboard */,
-				32D6B93423109D00006E75B2 /* Assets.xcassets */,
-				32D6B93623109D00006E75B2 /* LaunchScreen.storyboard */,
-				32D6B93923109D00006E75B2 /* Info.plist */,
+				32D6B94523141E55006E75B2 /* Model */,
+				32D6B94123141E15006E75B2 /* Views */,
+				32D6B94023141E0A006E75B2 /* View Controllers */,
 			);
 			path = "Receipt Tracking";
+			sourceTree = "<group>";
+		};
+		32D6B93F23141DE5006E75B2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				32D6B92D23109CFE006E75B2 /* AppDelegate.swift */,
+				32D6B93423109D00006E75B2 /* Assets.xcassets */,
+				32D6B93923109D00006E75B2 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		32D6B94023141E0A006E75B2 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				32D6B92F23109CFE006E75B2 /* ViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		32D6B94123141E15006E75B2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				32D6B93123109CFE006E75B2 /* Main.storyboard */,
+				32D6B93623109D00006E75B2 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		32D6B94523141E55006E75B2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				32D6B94223141E4C006E75B2 /* Receipt Tracking.xcdatamodeld */,
+				32D6B94623142444006E75B2 /* CoreDataStack.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,7 +174,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				32D6B93023109CFE006E75B2 /* ViewController.swift in Sources */,
+				32D6B94423141E4C006E75B2 /* Receipt Tracking.xcdatamodeld in Sources */,
 				32D6B92E23109CFE006E75B2 /* AppDelegate.swift in Sources */,
+				32D6B94723142444006E75B2 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +324,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YM84C6XKT7;
-				INFOPLIST_FILE = "Receipt Tracking/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +342,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YM84C6XKT7;
-				INFOPLIST_FILE = "Receipt Tracking/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -336,6 +376,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		32D6B94223141E4C006E75B2 /* Receipt Tracking.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				32D6B94323141E4C006E75B2 /* Receipt Tracking.xcdatamodel */,
+			);
+			currentVersion = 32D6B94323141E4C006E75B2 /* Receipt Tracking.xcdatamodel */;
+			path = "Receipt Tracking.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 32D6B92223109CFE006E75B2 /* Project object */;
 }
