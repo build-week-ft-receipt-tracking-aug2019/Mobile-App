@@ -23,6 +23,7 @@
 		32D6B957231442F1006E75B2 /* AddReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B956231442F1006E75B2 /* AddReceiptViewController.swift */; };
 		32D6B95923144382006E75B2 /* AddReceipt.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D6B95823144382006E75B2 /* AddReceipt.storyboard */; };
 		32D6B95B231445F9006E75B2 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B95A231445F9006E75B2 /* ModelController.swift */; };
+		32D6B95E23144698006E75B2 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B95D23144698006E75B2 /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		32D6B956231442F1006E75B2 /* AddReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReceiptViewController.swift; sourceTree = "<group>"; };
 		32D6B95823144382006E75B2 /* AddReceipt.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddReceipt.storyboard; sourceTree = "<group>"; };
 		32D6B95A231445F9006E75B2 /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
+		32D6B95D23144698006E75B2 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				32D6B94C23143F99006E75B2 /* LoginViewController.swift */,
 				32D6B9512314423E006E75B2 /* ReceiptDetailViewController.swift */,
 				32D6B956231442F1006E75B2 /* AddReceiptViewController.swift */,
+				32D6B95F2314472E006E75B2 /* Helpers */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -135,6 +138,14 @@
 				32D6B95A231445F9006E75B2 /* ModelController.swift */,
 			);
 			path = ModelControllers;
+			sourceTree = "<group>";
+		};
+		32D6B95F2314472E006E75B2 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				32D6B95D23144698006E75B2 /* CustomButton.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +229,7 @@
 				32D6B957231442F1006E75B2 /* AddReceiptViewController.swift in Sources */,
 				32D6B95B231445F9006E75B2 /* ModelController.swift in Sources */,
 				32D6B92E23109CFE006E75B2 /* AppDelegate.swift in Sources */,
+				32D6B95E23144698006E75B2 /* CustomButton.swift in Sources */,
 				32D6B94923142526006E75B2 /* Receipt+Convenience.swift in Sources */,
 				32D6B9522314423E006E75B2 /* ReceiptDetailViewController.swift in Sources */,
 				32D6B94723142444006E75B2 /* CoreDataStack.swift in Sources */,
