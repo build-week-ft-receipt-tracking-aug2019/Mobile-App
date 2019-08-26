@@ -32,7 +32,7 @@
                     <navigationItem key="navigationItem" title="Detail Title" id="nj1-CQ-C4u">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="VCF-W6-n2O">
                             <connections>
-                                <segue destination="jFi-4Z-2bx" kind="show" id="VW7-gQ-3ep"/>
+                                <segue destination="MR0-xd-KWc" kind="show" id="VW7-gQ-3ep"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -40,21 +40,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vqk-Qh-JiP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3255.072463768116" y="-243.08035714285714"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="4Er-Rl-eHz">
-            <objects>
-                <viewController id="jFi-4Z-2bx" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="kZy-8q-6nP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="gfy-mE-tuc"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8p3-Um-FT8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4138" y="-243"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0kZ-qe-cRP">
@@ -73,6 +58,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fAf-dL-7a1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2344.9275362318845" y="-243.08035714285714"/>
+        </scene>
+        <!--EditReceipt-->
+        <scene sceneID="7hR-nA-2wC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EditReceipt" id="MR0-xd-KWc" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pzo-EF-nUg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4138" y="-243"/>
         </scene>
     </scenes>
 </document>
