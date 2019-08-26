@@ -25,6 +25,7 @@
 		32D6B95B231445F9006E75B2 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B95A231445F9006E75B2 /* ModelController.swift */; };
 		3834CCFB23146A2F007CB528 /* ColorKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3834CCFA23146A2F007CB528 /* ColorKey.swift */; };
 		38C2012D2314713E00775092 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C2012C2314713E00775092 /* LoginView.swift */; };
+		DD52199F2314723500D64D22 /* ReceiptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD52199E2314723500D64D22 /* ReceiptTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		32D6B95A231445F9006E75B2 /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
 		3834CCFA23146A2F007CB528 /* ColorKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorKey.swift; sourceTree = "<group>"; };
 		38C2012C2314713E00775092 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		DD52199E2314723500D64D22 /* ReceiptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,8 @@
 				32D6B94C23143F99006E75B2 /* LoginViewController.swift */,
 				32D6B9512314423E006E75B2 /* ReceiptDetailViewController.swift */,
 				32D6B956231442F1006E75B2 /* AddReceiptViewController.swift */,
+				DD52199E2314723500D64D22 /* ReceiptTableViewCell.swift */,
+				32D6B95F2314472E006E75B2 /* Helpers */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -225,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD52199F2314723500D64D22 /* ReceiptTableViewCell.swift in Sources */,
 				32D6B94D23143F99006E75B2 /* LoginViewController.swift in Sources */,
 				32D6B93023109CFE006E75B2 /* ReceiptListViewController.swift in Sources */,
 				32D6B94B23142864006E75B2 /* ReceiptRepresentation.swift in Sources */,
