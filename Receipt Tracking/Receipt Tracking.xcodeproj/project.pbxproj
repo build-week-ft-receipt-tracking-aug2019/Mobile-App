@@ -14,6 +14,8 @@
 		32D6B93823109D00006E75B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D6B93623109D00006E75B2 /* LaunchScreen.storyboard */; };
 		32D6B94423141E4C006E75B2 /* Receipt Tracking.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B94223141E4C006E75B2 /* Receipt Tracking.xcdatamodeld */; };
 		32D6B94723142444006E75B2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B94623142444006E75B2 /* CoreDataStack.swift */; };
+		32D6B94923142526006E75B2 /* Receipt+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B94823142526006E75B2 /* Receipt+Convenience.swift */; };
+		32D6B94B23142864006E75B2 /* ReceiptRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B94A23142864006E75B2 /* ReceiptRepresentation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		32D6B93923109D00006E75B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32D6B94323141E4C006E75B2 /* Receipt Tracking.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Receipt Tracking.xcdatamodel"; sourceTree = "<group>"; };
 		32D6B94623142444006E75B2 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		32D6B94823142526006E75B2 /* Receipt+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Receipt+Convenience.swift"; sourceTree = "<group>"; };
+		32D6B94A23142864006E75B2 /* ReceiptRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptRepresentation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,8 @@
 			children = (
 				32D6B94223141E4C006E75B2 /* Receipt Tracking.xcdatamodeld */,
 				32D6B94623142444006E75B2 /* CoreDataStack.swift */,
+				32D6B94823142526006E75B2 /* Receipt+Convenience.swift */,
+				32D6B94A23142864006E75B2 /* ReceiptRepresentation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -174,8 +180,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				32D6B93023109CFE006E75B2 /* ViewController.swift in Sources */,
+				32D6B94B23142864006E75B2 /* ReceiptRepresentation.swift in Sources */,
 				32D6B94423141E4C006E75B2 /* Receipt Tracking.xcdatamodeld in Sources */,
 				32D6B92E23109CFE006E75B2 /* AppDelegate.swift in Sources */,
+				32D6B94923142526006E75B2 /* Receipt+Convenience.swift in Sources */,
 				32D6B94723142444006E75B2 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
