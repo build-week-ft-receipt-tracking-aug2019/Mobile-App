@@ -16,6 +16,13 @@
 		32D6B94723142444006E75B2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B94623142444006E75B2 /* CoreDataStack.swift */; };
 		32D6B94923142526006E75B2 /* Receipt+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B94823142526006E75B2 /* Receipt+Convenience.swift */; };
 		32D6B94B23142864006E75B2 /* ReceiptRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B94A23142864006E75B2 /* ReceiptRepresentation.swift */; };
+		32D6B94D23143F99006E75B2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B94C23143F99006E75B2 /* LoginViewController.swift */; };
+		32D6B95023144177006E75B2 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D6B94E23144177006E75B2 /* Login.storyboard */; };
+		32D6B9522314423E006E75B2 /* ReceiptDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B9512314423E006E75B2 /* ReceiptDetailViewController.swift */; };
+		32D6B9552314426F006E75B2 /* ReceiptDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D6B9532314426F006E75B2 /* ReceiptDetail.storyboard */; };
+		32D6B957231442F1006E75B2 /* AddReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B956231442F1006E75B2 /* AddReceiptViewController.swift */; };
+		32D6B95923144382006E75B2 /* AddReceipt.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D6B95823144382006E75B2 /* AddReceipt.storyboard */; };
+		32D6B95B231445F9006E75B2 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B95A231445F9006E75B2 /* ModelController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +37,13 @@
 		32D6B94623142444006E75B2 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		32D6B94823142526006E75B2 /* Receipt+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Receipt+Convenience.swift"; sourceTree = "<group>"; };
 		32D6B94A23142864006E75B2 /* ReceiptRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptRepresentation.swift; sourceTree = "<group>"; };
+		32D6B94C23143F99006E75B2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		32D6B94F23144177006E75B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Receipt Tracking/Views/Base.lproj/Login.storyboard"; sourceTree = "<group>"; };
+		32D6B9512314423E006E75B2 /* ReceiptDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptDetailViewController.swift; sourceTree = "<group>"; };
+		32D6B9542314426F006E75B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Receipt Tracking/Views/Base.lproj/ReceiptDetail.storyboard"; sourceTree = "<group>"; };
+		32D6B956231442F1006E75B2 /* AddReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReceiptViewController.swift; sourceTree = "<group>"; };
+		32D6B95823144382006E75B2 /* AddReceipt.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddReceipt.storyboard; sourceTree = "<group>"; };
+		32D6B95A231445F9006E75B2 /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				32D6B94523141E55006E75B2 /* Model */,
+				32D6B95C231445FE006E75B2 /* ModelControllers */,
 				32D6B94123141E15006E75B2 /* Views */,
 				32D6B94023141E0A006E75B2 /* View Controllers */,
 			);
@@ -84,6 +99,9 @@
 			isa = PBXGroup;
 			children = (
 				32D6B92F23109CFE006E75B2 /* ViewController.swift */,
+				32D6B94C23143F99006E75B2 /* LoginViewController.swift */,
+				32D6B9512314423E006E75B2 /* ReceiptDetailViewController.swift */,
+				32D6B956231442F1006E75B2 /* AddReceiptViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -91,8 +109,11 @@
 		32D6B94123141E15006E75B2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				32D6B94E23144177006E75B2 /* Login.storyboard */,
 				32D6B93123109CFE006E75B2 /* Main.storyboard */,
+				32D6B95823144382006E75B2 /* AddReceipt.storyboard */,
 				32D6B93623109D00006E75B2 /* LaunchScreen.storyboard */,
+				32D6B9532314426F006E75B2 /* ReceiptDetail.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -106,6 +127,14 @@
 				32D6B94A23142864006E75B2 /* ReceiptRepresentation.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		32D6B95C231445FE006E75B2 /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+				32D6B95A231445F9006E75B2 /* ModelController.swift */,
+			);
+			path = ModelControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,7 +195,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32D6B9552314426F006E75B2 /* ReceiptDetail.storyboard in Resources */,
+				32D6B95023144177006E75B2 /* Login.storyboard in Resources */,
 				32D6B93823109D00006E75B2 /* LaunchScreen.storyboard in Resources */,
+				32D6B95923144382006E75B2 /* AddReceipt.storyboard in Resources */,
 				32D6B93523109D00006E75B2 /* Assets.xcassets in Resources */,
 				32D6B93323109CFE006E75B2 /* Main.storyboard in Resources */,
 			);
@@ -179,11 +211,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32D6B94D23143F99006E75B2 /* LoginViewController.swift in Sources */,
 				32D6B93023109CFE006E75B2 /* ViewController.swift in Sources */,
 				32D6B94B23142864006E75B2 /* ReceiptRepresentation.swift in Sources */,
 				32D6B94423141E4C006E75B2 /* Receipt Tracking.xcdatamodeld in Sources */,
+				32D6B957231442F1006E75B2 /* AddReceiptViewController.swift in Sources */,
+				32D6B95B231445F9006E75B2 /* ModelController.swift in Sources */,
 				32D6B92E23109CFE006E75B2 /* AppDelegate.swift in Sources */,
 				32D6B94923142526006E75B2 /* Receipt+Convenience.swift in Sources */,
+				32D6B9522314423E006E75B2 /* ReceiptDetailViewController.swift in Sources */,
 				32D6B94723142444006E75B2 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -205,6 +241,22 @@
 				32D6B93723109D00006E75B2 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		32D6B94E23144177006E75B2 /* Login.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32D6B94F23144177006E75B2 /* Base */,
+			);
+			name = Login.storyboard;
+			sourceTree = "<group>";
+		};
+		32D6B9532314426F006E75B2 /* ReceiptDetail.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32D6B9542314426F006E75B2 /* Base */,
+			);
+			name = ReceiptDetail.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

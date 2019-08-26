@@ -30,7 +30,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="G4Y-sA-sUP" kind="show" id="tgj-bl-RVp"/>
+                                            <segue destination="aRu-xg-IiU" kind="show" id="tgj-bl-RVp"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -45,13 +45,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Receipts" id="v2k-wG-Yat">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xvD-78-9O5">
-                            <connections>
-                                <segue destination="5yo-KU-eif" kind="presentation" id="3oO-Ng-Q2z"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Receipts" id="v2k-wG-Yat"/>
                     <connections>
                         <segue destination="uEI-7H-bEG" kind="presentation" id="kJZ-Hu-m5C"/>
                     </connections>
@@ -84,23 +78,22 @@
                 <viewControllerPlaceholder storyboardName="Login" id="uEI-7H-bEG" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6fD-O6-KSF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1505" y="-257"/>
+            <point key="canvasLocation" x="1492" y="-627"/>
         </scene>
-        <!--ReceiptDetail-->
-        <scene sceneID="ze3-Rr-mBb">
+        <!--Receipt Detail View Controller-->
+        <scene sceneID="a4h-mb-G7d">
             <objects>
-                <viewControllerPlaceholder storyboardName="ReceiptDetail" id="G4Y-sA-sUP" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qEQ-Qf-gDt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="aRu-xg-IiU" customClass="ReceiptDetailViewController" customModule="Receipt_Tracking" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cTE-Ow-kfX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="oXj-ND-UXC"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vqk-Qh-JiP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1531" y="-190"/>
-        </scene>
-        <!--AddReceipt-->
-        <scene sceneID="I7T-1a-Wda">
-            <objects>
-                <viewControllerPlaceholder storyboardName="AddReceipt" id="5yo-KU-eif" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="h7i-J9-lUo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1530" y="-225"/>
+            <point key="canvasLocation" x="1959" y="-219"/>
         </scene>
     </scenes>
 </document>

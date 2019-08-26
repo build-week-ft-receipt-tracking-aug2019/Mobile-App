@@ -35,12 +35,12 @@ extension Receipt {
     }
     
     @discardableResult convenience init?(receiptRepresentation: ReceiptRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
-        guard let merchant  = receiptRepresentation.merchant,
+        guard let merchant     = receiptRepresentation.merchant,
             let categoryString = receiptRepresentation.category,
-            let amountSpent = receiptRepresentation.amountSpent,
-            let date        = receiptRepresentation.date,
-            let identifier  = receiptRepresentation.identifier,
-            let category = Category(rawValue: categoryString) else { return nil }
+            let amountSpent    = receiptRepresentation.amountSpent,
+            let date           = receiptRepresentation.date,
+            let identifier     = receiptRepresentation.identifier,
+            let category       = Category(rawValue: categoryString) else { return nil }
         
         self.init(merchant: merchant, category: category, amountSpent: amountSpent, date: date, identifier: identifier, context: context)
     }

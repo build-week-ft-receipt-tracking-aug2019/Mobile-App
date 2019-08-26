@@ -48,7 +48,7 @@
                     <navigationItem key="navigationItem" title="Receipts" id="v2k-wG-Yat">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xvD-78-9O5">
                             <connections>
-                                <segue destination="5yo-KU-eif" kind="presentation" id="3oO-Ng-Q2z"/>
+                                <segue destination="eHv-vb-PTH" kind="presentation" id="3oO-Ng-Q2z"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -86,21 +86,28 @@
             </objects>
             <point key="canvasLocation" x="1505" y="-257"/>
         </scene>
+        <!--Add Receipt View Controller-->
+        <scene sceneID="ptj-zd-7Ub">
+            <objects>
+                <viewController id="eHv-vb-PTH" customClass="AddReceiptViewController" customModule="Receipt_Tracking" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UGo-yu-2gO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="T49-QL-I7r"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IKX-hl-bBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2023" y="-225"/>
+        </scene>
         <!--ReceiptDetail-->
         <scene sceneID="ze3-Rr-mBb">
             <objects>
                 <viewControllerPlaceholder storyboardName="ReceiptDetail" id="G4Y-sA-sUP" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qEQ-Qf-gDt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1531" y="-190"/>
-        </scene>
-        <!--AddReceipt-->
-        <scene sceneID="I7T-1a-Wda">
-            <objects>
-                <viewControllerPlaceholder storyboardName="AddReceipt" id="5yo-KU-eif" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="h7i-J9-lUo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1530" y="-225"/>
+            <point key="canvasLocation" x="1540" y="-195"/>
         </scene>
     </scenes>
 </document>
