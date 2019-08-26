@@ -23,6 +23,7 @@
 		32D6B957231442F1006E75B2 /* AddReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B956231442F1006E75B2 /* AddReceiptViewController.swift */; };
 		32D6B95923144382006E75B2 /* AddReceipt.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D6B95823144382006E75B2 /* AddReceipt.storyboard */; };
 		32D6B95B231445F9006E75B2 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B95A231445F9006E75B2 /* ModelController.swift */; };
+		32D6B97123149BB1006E75B2 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B97023149BB1006E75B2 /* KeychainWrapper.swift */; };
 		3834CCFB23146A2F007CB528 /* ColorKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3834CCFA23146A2F007CB528 /* ColorKey.swift */; };
 		38C2012D2314713E00775092 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C2012C2314713E00775092 /* LoginView.swift */; };
 		DD52199F2314723500D64D22 /* ReceiptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD52199E2314723500D64D22 /* ReceiptTableViewCell.swift */; };
@@ -47,6 +48,8 @@
 		32D6B956231442F1006E75B2 /* AddReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReceiptViewController.swift; sourceTree = "<group>"; };
 		32D6B95823144382006E75B2 /* AddReceipt.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddReceipt.storyboard; sourceTree = "<group>"; };
 		32D6B95A231445F9006E75B2 /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
+		32D6B96F23149B64006E75B2 /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
+		32D6B97023149BB1006E75B2 /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeychainWrapper.swift; path = ../../../../../../../../Documents/KeychainWrapper.swift; sourceTree = "<group>"; };
 		3834CCFA23146A2F007CB528 /* ColorKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorKey.swift; sourceTree = "<group>"; };
 		38C2012C2314713E00775092 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		DD52199E2314723500D64D22 /* ReceiptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptTableViewCell.swift; sourceTree = "<group>"; };
@@ -88,6 +91,7 @@
 				32D6B94123141E15006E75B2 /* Views */,
 				32D6B94023141E0A006E75B2 /* View Controllers */,
 				3834CCFC23146A34007CB528 /* Keys */,
+				32D6B96E23149B63006E75B2 /* Libraries */,
 			);
 			path = "Receipt Tracking";
 			sourceTree = "<group>";
@@ -110,7 +114,6 @@
 				32D6B9512314423E006E75B2 /* ReceiptDetailViewController.swift */,
 				32D6B956231442F1006E75B2 /* AddReceiptViewController.swift */,
 				DD52199E2314723500D64D22 /* ReceiptTableViewCell.swift */,
-				32D6B95F2314472E006E75B2 /* Helpers */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -144,6 +147,15 @@
 				32D6B95A231445F9006E75B2 /* ModelController.swift */,
 			);
 			path = ModelControllers;
+			sourceTree = "<group>";
+		};
+		32D6B96E23149B63006E75B2 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				32D6B96F23149B64006E75B2 /* KeychainItemAccessibility.swift */,
+				32D6B97023149BB1006E75B2 /* KeychainWrapper.swift */,
+			);
+			path = Libraries;
 			sourceTree = "<group>";
 		};
 		3834CCFC23146A34007CB528 /* Keys */ = {
@@ -232,6 +244,7 @@
 				DD52199F2314723500D64D22 /* ReceiptTableViewCell.swift in Sources */,
 				32D6B94D23143F99006E75B2 /* LoginViewController.swift in Sources */,
 				32D6B93023109CFE006E75B2 /* ReceiptListViewController.swift in Sources */,
+				32D6B97123149BB1006E75B2 /* KeychainWrapper.swift in Sources */,
 				32D6B94B23142864006E75B2 /* ReceiptRepresentation.swift in Sources */,
 				32D6B94423141E4C006E75B2 /* Receipt Tracking.xcdatamodeld in Sources */,
 				32D6B957231442F1006E75B2 /* AddReceiptViewController.swift in Sources */,
