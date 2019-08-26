@@ -23,6 +23,7 @@
 		32D6B957231442F1006E75B2 /* AddReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B956231442F1006E75B2 /* AddReceiptViewController.swift */; };
 		32D6B95923144382006E75B2 /* AddReceipt.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D6B95823144382006E75B2 /* AddReceipt.storyboard */; };
 		32D6B95B231445F9006E75B2 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B95A231445F9006E75B2 /* ModelController.swift */; };
+		3834CCFB23146A2F007CB528 /* ColorKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3834CCFA23146A2F007CB528 /* ColorKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		32D6B956231442F1006E75B2 /* AddReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReceiptViewController.swift; sourceTree = "<group>"; };
 		32D6B95823144382006E75B2 /* AddReceipt.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddReceipt.storyboard; sourceTree = "<group>"; };
 		32D6B95A231445F9006E75B2 /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
+		3834CCFA23146A2F007CB528 /* ColorKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				32D6B95C231445FE006E75B2 /* ModelControllers */,
 				32D6B94123141E15006E75B2 /* Views */,
 				32D6B94023141E0A006E75B2 /* View Controllers */,
+				3834CCFC23146A34007CB528 /* Keys */,
 			);
 			path = "Receipt Tracking";
 			sourceTree = "<group>";
@@ -135,6 +138,14 @@
 				32D6B95A231445F9006E75B2 /* ModelController.swift */,
 			);
 			path = ModelControllers;
+			sourceTree = "<group>";
+		};
+		3834CCFC23146A34007CB528 /* Keys */ = {
+			isa = PBXGroup;
+			children = (
+				3834CCFA23146A2F007CB528 /* ColorKey.swift */,
+			);
+			path = Keys;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +232,7 @@
 				32D6B94923142526006E75B2 /* Receipt+Convenience.swift in Sources */,
 				32D6B9522314423E006E75B2 /* ReceiptDetailViewController.swift in Sources */,
 				32D6B94723142444006E75B2 /* CoreDataStack.swift in Sources */,
+				3834CCFB23146A2F007CB528 /* ColorKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +397,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YM84C6XKT7;
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -403,6 +416,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YM84C6XKT7;
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
