@@ -24,6 +24,7 @@
 		32D6B95923144382006E75B2 /* AddReceipt.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D6B95823144382006E75B2 /* AddReceipt.storyboard */; };
 		32D6B95B231445F9006E75B2 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B95A231445F9006E75B2 /* ModelController.swift */; };
 		3834CCFB23146A2F007CB528 /* ColorKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3834CCFA23146A2F007CB528 /* ColorKey.swift */; };
+		38C2012D2314713E00775092 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C2012C2314713E00775092 /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		32D6B95823144382006E75B2 /* AddReceipt.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddReceipt.storyboard; sourceTree = "<group>"; };
 		32D6B95A231445F9006E75B2 /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
 		3834CCFA23146A2F007CB528 /* ColorKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorKey.swift; sourceTree = "<group>"; };
+		38C2012C2314713E00775092 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				3834CCFA23146A2F007CB528 /* ColorKey.swift */,
+				38C2012C2314713E00775092 /* LoginView.swift */,
 			);
 			path = Keys;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				32D6B94423141E4C006E75B2 /* Receipt Tracking.xcdatamodeld in Sources */,
 				32D6B957231442F1006E75B2 /* AddReceiptViewController.swift in Sources */,
 				32D6B95B231445F9006E75B2 /* ModelController.swift in Sources */,
+				38C2012D2314713E00775092 /* LoginView.swift in Sources */,
 				32D6B92E23109CFE006E75B2 /* AppDelegate.swift in Sources */,
 				32D6B94923142526006E75B2 /* Receipt+Convenience.swift in Sources */,
 				32D6B9522314423E006E75B2 /* ReceiptDetailViewController.swift in Sources */,
@@ -395,7 +399,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YM84C6XKT7;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -414,7 +418,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YM84C6XKT7;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (

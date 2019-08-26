@@ -10,22 +10,34 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    var loginView = LoginView()
+    
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var forgotPasswordButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var emailTextField: UITextField!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setViews()
     }
     
     private func setViews() {
-        view.backgroundColor = .receiptGray
+        
+        loginView.textFieldConfiguration(textField: emailTextField)
+        loginView.textFieldConfiguration(textField: usernameTextField)
+        loginView.textFieldConfiguration(textField: passwordTextField)
+        loginView.buttonConfiguration(button: loginButton)
+        loginView.currentViewConfiguration(view: view)
         
     }
+    
+    @IBAction func loginButtonTapped(_ sender: UIButton) {
+    }
+    
     
     @IBAction func forgotPasswordButtonTapped(_ sender: UIButton) {
         
