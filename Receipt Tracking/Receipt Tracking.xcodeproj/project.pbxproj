@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		32D6B92E23109CFE006E75B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B92D23109CFE006E75B2 /* AppDelegate.swift */; };
-		32D6B93023109CFE006E75B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B92F23109CFE006E75B2 /* ViewController.swift */; };
+		32D6B93023109CFE006E75B2 /* ReceiptListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B92F23109CFE006E75B2 /* ReceiptListViewController.swift */; };
 		32D6B93323109CFE006E75B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D6B93123109CFE006E75B2 /* Main.storyboard */; };
 		32D6B93523109D00006E75B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32D6B93423109D00006E75B2 /* Assets.xcassets */; };
 		32D6B93823109D00006E75B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D6B93623109D00006E75B2 /* LaunchScreen.storyboard */; };
@@ -30,7 +30,7 @@
 /* Begin PBXFileReference section */
 		32D6B92A23109CFE006E75B2 /* Receipt Tracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Receipt Tracking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		32D6B92D23109CFE006E75B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		32D6B92F23109CFE006E75B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		32D6B92F23109CFE006E75B2 /* ReceiptListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptListViewController.swift; sourceTree = "<group>"; };
 		32D6B93223109CFE006E75B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		32D6B93423109D00006E75B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32D6B93723109D00006E75B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -103,11 +103,10 @@
 		32D6B94023141E0A006E75B2 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				32D6B92F23109CFE006E75B2 /* ViewController.swift */,
+				32D6B92F23109CFE006E75B2 /* ReceiptListViewController.swift */,
 				32D6B94C23143F99006E75B2 /* LoginViewController.swift */,
 				32D6B9512314423E006E75B2 /* ReceiptDetailViewController.swift */,
 				32D6B956231442F1006E75B2 /* AddReceiptViewController.swift */,
-				32D6B95F2314472E006E75B2 /* Helpers */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -227,14 +226,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				32D6B94D23143F99006E75B2 /* LoginViewController.swift in Sources */,
-				32D6B93023109CFE006E75B2 /* ViewController.swift in Sources */,
+				32D6B93023109CFE006E75B2 /* ReceiptListViewController.swift in Sources */,
 				32D6B94B23142864006E75B2 /* ReceiptRepresentation.swift in Sources */,
 				32D6B94423141E4C006E75B2 /* Receipt Tracking.xcdatamodeld in Sources */,
 				32D6B957231442F1006E75B2 /* AddReceiptViewController.swift in Sources */,
 				32D6B95B231445F9006E75B2 /* ModelController.swift in Sources */,
 				38C2012D2314713E00775092 /* LoginView.swift in Sources */,
 				32D6B92E23109CFE006E75B2 /* AppDelegate.swift in Sources */,
-				32D6B95E23144698006E75B2 /* CustomButton.swift in Sources */,
 				32D6B94923142526006E75B2 /* Receipt+Convenience.swift in Sources */,
 				32D6B9522314423E006E75B2 /* ReceiptDetailViewController.swift in Sources */,
 				32D6B94723142444006E75B2 /* CoreDataStack.swift in Sources */,
