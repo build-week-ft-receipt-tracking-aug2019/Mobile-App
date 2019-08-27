@@ -58,7 +58,7 @@ class ReceiptListViewController: UIViewController {
     
     // MARK: - View LifeCycle
     
-	override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         print("\(token ?? "")")
         // check if first launch or not logged in
@@ -68,6 +68,11 @@ class ReceiptListViewController: UIViewController {
             performSegue(withIdentifier: "LoginViewModalSegue", sender: self)
         } else if user.identifier == nil {
             performSegue(withIdentifier: "LoginViewModalSegue", sender: self)
+        }
+        
+        if let username = user.username,
+            token != nil {
+            receiptController.fetchReceiptsFromServer(username: username)
         }
     }
     
@@ -84,6 +89,26 @@ class ReceiptListViewController: UIViewController {
 }
 
 // MARK: - Extensions
+
+extension ReceiptListViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return fetchedResultsController.sections?[section].name
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return fetchedResultsController.sections?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: RecieptCell)
+    }
+    
+    
+}
 
 extension ReceiptListViewController: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
