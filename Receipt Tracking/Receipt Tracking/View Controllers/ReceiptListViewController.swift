@@ -15,16 +15,8 @@ class ReceiptListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setViews()
-    }
-    
-    private func setViews() {
-
-    }
-    
     let receiptController = ReceiptController.shared
+    
     var user: UserRepresentation {
         let moc = CoreDataStack.shared.mainContext
         let request: NSFetchRequest<User> = User.fetchRequest()
@@ -70,13 +62,22 @@ class ReceiptListViewController: UIViewController {
         super.viewDidLoad()
         print("\(token ?? "")")
         // check if first launch or not logged in
-        if token == nil {
+        if UserDefaults.isFirstLaunch() && token == nil {
             performSegue(withIdentifier: "LoginViewModalSegue", sender: self)
         } else if token == nil {
             performSegue(withIdentifier: "LoginViewModalSegue", sender: self)
         } else if user.identifier == nil {
             performSegue(withIdentifier: "LoginViewModalSegue", sender: self)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setViews()
+    }
+    
+    private func setViews() {
+        
     }
 
 
