@@ -30,6 +30,9 @@ class AddView {
         // Set title name
         button.setTitle("UPLOAD RECEIPT IMAGE", for: .normal)
         button.setTitleColor(.white, for: .normal)
+        
+        // Set corner radius
+        button.layer.cornerRadius = 5
     }
     
     func textFieldConfiguration(textField: UITextField) {

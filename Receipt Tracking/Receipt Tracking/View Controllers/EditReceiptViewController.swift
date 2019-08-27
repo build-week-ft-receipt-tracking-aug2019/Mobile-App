@@ -9,22 +9,36 @@
 import UIKit
 
 class EditReceiptViewController: UIViewController {
-
+    
+    @IBOutlet weak var receiptImageView: UIImageView!
+    @IBOutlet weak var editPhotoButton: UIButton!
+    @IBOutlet weak var merchantTextField: UITextField!
+    @IBOutlet weak var categoryTextField: UITextField!
+    @IBOutlet weak var amountTextField: UITextField!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var cancelBarButton: UIBarButtonItem!
+    @IBOutlet weak var saveBarButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setViews()
 
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setViews() {
+        
     }
-    */
-
+    
+    @IBAction func editPhotoButtonTapped(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func saveBarButtonTapped(_ sender: UIBarButtonItem) {
+        
+    }
+    
+    @IBAction func cancelBarButtonTapped(_ sender: UIBarButtonItem) {
+        
+    }
+    
 }
