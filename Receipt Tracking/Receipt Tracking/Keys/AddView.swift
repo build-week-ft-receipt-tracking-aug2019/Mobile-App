@@ -18,14 +18,16 @@ class AddView {
     
     func navBarConfiguration(navBar: UINavigationBar) {
         // Setting navigation bar to a custom color
-        navBar.barTintColor = .receiptMidGreen
-        navBar.backgroundColor = .receiptMidGreen
-        navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.receiptWhite]
+        
+        navBar.barStyle = .black
+//        navBar.barTintColor = .receiptMidGreen
+//        navBar.backgroundColor = .receiptMidGreen
+//        navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.receiptWhite]
     }
     
     func photoUploadButtonConfiguration(button: UIButton) {
         // Set background color
-        button.backgroundColor = .darkGray
+        button.backgroundColor = .receiptMidGreen
         
         // Set title name
         button.setTitle("UPLOAD RECEIPT IMAGE", for: .normal)
@@ -49,7 +51,7 @@ class AddView {
     
     func imageViewConfiguration(imageView: UIImageView) {
         // Set background color
-        imageView.backgroundColor = .receiptGray
+        imageView.backgroundColor = .darkGray
     }
     
     func datePickerConfiguration(picker: UIDatePicker) {
@@ -59,6 +61,7 @@ class AddView {
     
     func barButtonItemConfiguration(barButton: UIBarButtonItem) {
         // Set text color
+        barButton.tintColor = .receiptWhite
     
     }
     
