@@ -74,7 +74,7 @@ class LoginViewController: UIViewController {
             userController.loginWith(user: user, loginType: .signIn) { (result) in
                 if (try? result.get()) != nil {
                     DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: "ShowProfileSegue", sender: self)
+                        self.dismiss(animated: true, completion: nil)
                     }
                 } else {
                     NSLog("Error logging in with \(result)")
@@ -103,7 +103,7 @@ class LoginViewController: UIViewController {
                 self.userController.loginWith(user: user, loginType: .signIn) { (result) in
                     if (try? result.get()) != nil {
                         DispatchQueue.main.async {
-                            self.performSegue(withIdentifier: "ShowProfileSegue", sender: self)
+                            self.dismiss(animated: true, completion: nil)
                         }
                     } else {
                         NSLog("Error logging in with \(result)")
