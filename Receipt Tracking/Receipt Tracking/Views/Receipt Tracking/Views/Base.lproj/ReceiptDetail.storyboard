@@ -18,15 +18,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Receipt Detail View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wV2-4V-IxI">
-                                <rect key="frame" x="50" y="207" width="148" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Merchant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMc-oo-uSr">
+                                <rect key="frame" x="20" y="160" width="123" height="36"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMc-wc-ed4">
+                                <rect key="frame" x="20" y="216" width="123" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.35686274509803922" green="0.72941176470588232" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7N-T8-0yP">
+                                <rect key="frame" x="20" y="257" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.23137254901960785" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1FK-VV-69C">
+                                <rect key="frame" x="337" y="160" width="57" height="32"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0gP-1S-WVm">
+                                <rect key="frame" x="40" y="318" width="334" height="514"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oXj-ND-UXC" firstAttribute="trailing" secondItem="1FK-VV-69C" secondAttribute="trailing" constant="20" id="1D0-V8-ukb"/>
+                            <constraint firstItem="1FK-VV-69C" firstAttribute="top" secondItem="QMc-oo-uSr" secondAttribute="top" id="67w-LE-8A0"/>
+                            <constraint firstItem="oXj-ND-UXC" firstAttribute="bottom" secondItem="0gP-1S-WVm" secondAttribute="bottom" constant="30" id="9ef-QI-PaL"/>
+                            <constraint firstItem="QMc-oo-uSr" firstAttribute="top" secondItem="oXj-ND-UXC" secondAttribute="top" constant="20" id="Cle-tT-pWY"/>
+                            <constraint firstItem="0gP-1S-WVm" firstAttribute="top" secondItem="z7N-T8-0yP" secondAttribute="bottom" constant="40" id="Cr1-jk-9Gz"/>
+                            <constraint firstItem="qMc-wc-ed4" firstAttribute="leading" secondItem="QMc-oo-uSr" secondAttribute="leading" id="KGj-XP-dIe"/>
+                            <constraint firstItem="z7N-T8-0yP" firstAttribute="leading" secondItem="qMc-wc-ed4" secondAttribute="leading" id="OHI-Pt-OEp"/>
+                            <constraint firstItem="0gP-1S-WVm" firstAttribute="leading" secondItem="oXj-ND-UXC" secondAttribute="leading" constant="40" id="SUl-GR-Mxd"/>
+                            <constraint firstItem="1FK-VV-69C" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QMc-oo-uSr" secondAttribute="trailing" constant="10" id="U2F-5r-eyR"/>
+                            <constraint firstItem="qMc-wc-ed4" firstAttribute="trailing" secondItem="QMc-oo-uSr" secondAttribute="trailing" id="V9D-hH-DTK"/>
+                            <constraint firstItem="qMc-wc-ed4" firstAttribute="top" secondItem="QMc-oo-uSr" secondAttribute="bottom" constant="20" id="dI4-XA-FR7"/>
+                            <constraint firstItem="z7N-T8-0yP" firstAttribute="top" secondItem="qMc-wc-ed4" secondAttribute="bottom" constant="20" id="nwn-RI-UKF"/>
+                            <constraint firstItem="QMc-oo-uSr" firstAttribute="leading" secondItem="oXj-ND-UXC" secondAttribute="leading" constant="20" id="rGW-CQ-4HS"/>
+                            <constraint firstItem="oXj-ND-UXC" firstAttribute="trailing" secondItem="0gP-1S-WVm" secondAttribute="trailing" constant="40" id="vDQ-XP-zij"/>
+                            <constraint firstItem="oXj-ND-UXC" firstAttribute="trailing" secondItem="z7N-T8-0yP" secondAttribute="trailing" constant="20" id="vjY-Uu-bwc"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="oXj-ND-UXC"/>
                     </view>
                     <navigationItem key="navigationItem" title="Detail Title" id="nj1-CQ-C4u">
