@@ -10,6 +10,8 @@ import UIKit
 
 class AddReceiptViewController: UIViewController {
     
+    var addView = AddView()
+    
     @IBOutlet weak var receiptImageView: UIImageView!
     @IBOutlet weak var uploadPhotoButton: UIButton!
     @IBOutlet weak var merchantTextField: UITextField!
@@ -26,6 +28,16 @@ class AddReceiptViewController: UIViewController {
     }
     
     private func setViews() {
+        
+        addView.navBarConfiguration(navBar: navigationController!.navigationBar)
+        addView.barButtonItemConfiguration(barButton: cancelBarButton)
+        addView.barButtonItemConfiguration(barButton: saveBarButton)
+        addView.imageViewConfiguration(imageView: receiptImageView)
+        addView.textFieldConfiguration(textField: merchantTextField)
+        addView.textFieldConfiguration(textField: categoryTextField)
+        addView.textFieldConfiguration(textField: amountTextField)
+        addView.datePickerConfiguration(picker: datePicker)
+        addView.photoUploadButtonConfiguration(button: uploadPhotoButton)
         
     }
     
