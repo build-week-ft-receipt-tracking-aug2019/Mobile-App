@@ -46,7 +46,7 @@ class UserController {
         }
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let response = response as? HTTPURLResponse, response.statusCode != 200 {
+            if let response = response as? HTTPURLResponse, response.statusCode != 201 {
                 print(response.statusCode)
                 completion(.failure(.badResponse))
                 return
@@ -64,9 +64,9 @@ class UserController {
             
             let jsonDecoder = JSONDecoder()
             do {
-                let result = try jsonDecoder.decode(Users.self, from: data)
+                let result = try jsonDecoder.decode(UserResult.self, from: data)
                 self.token = result.token
-                self.user = result.users
+                self.user = user
                 let context = CoreDataStack.shared.mainContext
                 
                 context.performAndWait {
