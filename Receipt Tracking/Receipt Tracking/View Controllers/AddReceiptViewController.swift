@@ -20,6 +20,7 @@ class AddReceiptViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var cancelBarButton: UIBarButtonItem!
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
+    @IBOutlet weak var toolbar: UIToolbar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,8 @@ class AddReceiptViewController: UIViewController {
         addView.textFieldConfiguration(textField: amountTextField)
         addView.datePickerConfiguration(picker: datePicker)
         addView.photoUploadButtonConfiguration(button: uploadPhotoButton)
+        addView.viewConfiguration(view: view)
+        addView.toolbarConfiguration(toolbar: toolbar)
         
     }
     
