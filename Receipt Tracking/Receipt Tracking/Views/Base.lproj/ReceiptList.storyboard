@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VeG-EX-SBO">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Receipts-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ReceiptListViewController" customModule="Receipt_Tracking" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kDY-O6-uZl">
+                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RecieptCell" rowHeight="60" id="FPs-WN-lOf" customClass="ReceiptTableViewCell" customModule="Receipt_Tracking" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FPs-WN-lOf" id="A6k-7Q-fP8">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="jBg-G5-5DA">
+                                                    <rect key="frame" x="15" y="0.0" width="73" height="53"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Merchant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMz-Nc-fjM">
+                                                            <rect key="frame" x="0.0" y="0.0" width="73" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wWx-cW-KQN">
+                                                            <rect key="frame" x="0.0" y="20.5" width="26.5" height="14.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Pd-sr-NIQ">
+                                                            <rect key="frame" x="0.0" y="35" width="63" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AmountSpent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdM-gj-3jM">
+                                                    <rect key="frame" x="293.5" y="0.0" width="105.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="wdM-gj-3jM" secondAttribute="trailing" constant="15" id="NPQ-Z2-Lxe"/>
+                                                <constraint firstItem="wdM-gj-3jM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="sMz-Nc-fjM" secondAttribute="trailing" constant="50" id="izv-ig-128"/>
+                                                <constraint firstItem="wdM-gj-3jM" firstAttribute="top" secondItem="A6k-7Q-fP8" secondAttribute="top" id="n3s-3S-k7A"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="amountSpentLabel" destination="wdM-gj-3jM" id="6gO-aE-o0b"/>
+                                            <outlet property="categoryLabel" destination="7Pd-sr-NIQ" id="R8R-pJ-Ycb"/>
+                                            <outlet property="dateLabel" destination="wWx-cW-KQN" id="uef-Ai-N1Q"/>
+                                            <outlet property="merchantLabel" destination="sMz-Nc-fjM" id="TE3-un-ogh"/>
+                                            <segue destination="G4Y-sA-sUP" kind="show" identifier="ToReceiptDetailSegue" id="tgj-bl-RVp"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="kDY-O6-uZl" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="3qc-dP-66z"/>
+                            <constraint firstItem="kDY-O6-uZl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="XaP-Vr-ev5"/>
+                            <constraint firstItem="kDY-O6-uZl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="pjI-2u-0ax"/>
+                            <constraint firstItem="kDY-O6-uZl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qPj-Ak-oZW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Receipts" id="v2k-wG-Yat">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xvD-78-9O5">
+                            <connections>
+                                <segue destination="5yo-KU-eif" kind="presentation" identifier="AddReceiptSegue" id="3oO-Ng-Q2z"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="kDY-O6-uZl" id="Z3w-Bd-4Tl"/>
+                        <segue destination="uEI-7H-bEG" kind="presentation" identifier="LoginViewModalSegue" id="kJZ-Hu-m5C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="771.01449275362324" y="-235.04464285714283"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cAb-mr-yeo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VeG-EX-SBO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="haT-ya-aKK">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="DEW-wz-MM9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AXY-Qv-Sot" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1" y="-225"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="Txf-0b-QtM">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Login" id="uEI-7H-bEG" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6fD-O6-KSF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1505" y="-257"/>
+        </scene>
+        <!--ReceiptDetail-->
+        <scene sceneID="ze3-Rr-mBb">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ReceiptDetail" id="G4Y-sA-sUP" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qEQ-Qf-gDt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1531" y="-190"/>
+        </scene>
+        <!--AddReceipt-->
+        <scene sceneID="I7T-1a-Wda">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddReceipt" id="5yo-KU-eif" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h7i-J9-lUo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1530" y="-225"/>
+        </scene>
+    </scenes>
+</document>
