@@ -84,8 +84,6 @@ class ReceiptListViewController: UIViewController {
     private func setViews() {
         
     }
-
-
 }
 
 // MARK: - Extensions
@@ -104,10 +102,11 @@ extension ReceiptListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: RecieptCell)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RecieptCell") as? ReceiptTableViewCell else { return UITableViewCell()}
+        let receipt = fetchedResultsController.object(at: indexPath)
+        cell.receipt = receipt
+        return cell
     }
-    
-    
 }
 
 extension ReceiptListViewController: NSFetchedResultsControllerDelegate {
