@@ -12,20 +12,22 @@ import UIKit
 class AddView {
     
     func viewConfiguration(view: UIView) {
-        view.backgroundColor = .receiptGray
+        // Set background color
+        view.backgroundColor = .black
     }
     
     func navBarConfiguration(navBar: UINavigationBar) {
         // Setting navigation bar to a custom color
-        navBar.isTranslucent = false
-        navBar.backgroundColor = .receiptDarkGreen
-        navBar.barTintColor = .white
         
+        navBar.barStyle = .black
+//        navBar.barTintColor = .receiptMidGreen
+//        navBar.backgroundColor = .receiptMidGreen
+//        navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.receiptWhite]
     }
     
     func photoUploadButtonConfiguration(button: UIButton) {
         // Set background color
-        button.backgroundColor = .receiptGray
+        button.backgroundColor = .receiptMidGreen
         
         // Set title name
         button.setTitle("UPLOAD RECEIPT IMAGE", for: .normal)
@@ -43,19 +45,28 @@ class AddView {
         textField.layer.borderWidth = 1
         textField.layer.cornerRadius = 5
         textField.clipsToBounds = true
-        textField.layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        textField.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        textField.backgroundColor = .receiptWhite
     }
     
     func imageViewConfiguration(imageView: UIImageView) {
-        imageView.backgroundColor = .receiptWhite
+        // Set background color
+        imageView.backgroundColor = .darkGray
     }
     
     func datePickerConfiguration(picker: UIDatePicker) {
-        picker.setValue(UIColor.receiptDarkGreen, forKey: "textColor")
+        // Set text color
+        picker.setValue(UIColor.receiptWhite, forKey: "textColor")
     }
     
     func barButtonItemConfiguration(barButton: UIBarButtonItem) {
-        barButton.setValue(UIColor.receiptWhite, forKey: "textColor")
+        // Set text color
+        barButton.tintColor = .receiptWhite
+    
+    }
+    
+    func toolbarConfiguration(toolbar: UIToolbar) {
+        toolbar.barTintColor = .black
     }
     
 }
