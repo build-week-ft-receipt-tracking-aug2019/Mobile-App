@@ -95,7 +95,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="kDY-O6-uZl" id="Z3w-Bd-4Tl"/>
-                        <segue destination="uEI-7H-bEG" kind="presentation" id="kJZ-Hu-m5C"/>
+                        <segue destination="uEI-7H-bEG" kind="presentation" identifier="LoginViewModalSegue" id="kJZ-Hu-m5C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

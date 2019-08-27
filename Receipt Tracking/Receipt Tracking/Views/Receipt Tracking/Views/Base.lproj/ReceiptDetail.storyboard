@@ -32,7 +32,7 @@
                     <navigationItem key="navigationItem" title="Detail Title" id="nj1-CQ-C4u">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="VCF-W6-n2O">
                             <connections>
-                                <segue destination="MR0-xd-KWc" kind="show" id="VW7-gQ-3ep"/>
+                                <segue destination="7Qm-wS-AYk" kind="show" id="0qo-mh-cPt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -40,6 +40,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vqk-Qh-JiP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3255.072463768116" y="-243.08035714285714"/>
+        </scene>
+        <!--EditReceipt-->
+        <scene sceneID="ped-eP-cNt">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EditReceipt" id="7Qm-wS-AYk" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EAj-jo-NSk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3940" y="-381"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0kZ-qe-cRP">
@@ -58,14 +66,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fAf-dL-7a1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2344.9275362318845" y="-243.08035714285714"/>
-        </scene>
-        <!--EditReceipt-->
-        <scene sceneID="7hR-nA-2wC">
-            <objects>
-                <viewControllerPlaceholder storyboardName="EditReceipt" id="MR0-xd-KWc" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Pzo-EF-nUg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4138" y="-243"/>
         </scene>
     </scenes>
 </document>
