@@ -40,19 +40,6 @@ class AddView {
     }
     
     func photoUploadButtonConfiguration(button: UIButton) {
-        
-        navBar.barStyle = .black
-//        navBar.barTintColor = .receiptMidGreen
-//        navBar.backgroundColor = .receiptMidGreen
-//
-		navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.receiptWhite]
-
-		navBar.tintColor = .white
-
-		
-    }
-    
-    func photoUploadButtonConfiguration(button: UIButton) {
         // Set background color
         button.backgroundColor = .receiptMidGreen
         
@@ -76,11 +63,10 @@ class AddView {
         textField.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         textField.backgroundColor = .receiptGray
         
-        let spacerView = UIView(frame:CGRect(x:0, y:0, width: 4, height:10))
+        let spacerView = UIView(frame:CGRect(x:0, y:0, width: 20, height:10))
         textField.leftViewMode = UITextField.ViewMode.always
         textField.leftView = spacerView
         
-        textField.text = NSString(string: "$ ") as String
     }
     
     func textFieldConfiguration(textField: UITextField) {
@@ -95,7 +81,7 @@ class AddView {
         textField.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         textField.backgroundColor = .receiptGray
         
-        let spacerView = UIView(frame:CGRect(x:0, y:0, width: 15, height:10))
+        let spacerView = UIView(frame:CGRect(x:0, y:0, width: 12, height:10))
         textField.leftViewMode = UITextField.ViewMode.always
         textField.leftView = spacerView
     }

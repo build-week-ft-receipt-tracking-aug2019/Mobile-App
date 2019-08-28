@@ -33,7 +33,7 @@ class ReceiptDetailViewController: UIViewController {
 		viewDetails.navBarConfiguration(navBar: navigationController!.navigationBar)
 		viewDetails.viewConfiguration(view: view)
 		viewDetails.barButtonItemConfiguration(barButton: editButtonLabel)
-		viewDetails.navBarConfiguration(navBar: self.title)
+		viewDetails.navBarConfiguration(navBar: navigationController!.navigationBar)
 
 
 
