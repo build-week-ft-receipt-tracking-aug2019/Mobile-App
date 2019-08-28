@@ -73,7 +73,7 @@ class AddReceiptViewController: UIViewController, UITextFieldDelegate {
         addView.viewConfiguration(view: view)
         addView.toolbarConfiguration(toolbar: toolbar)
         addView.textFieldConfiguration(textField: merchantTextField)
-        addView.textFieldConfiguration(textField: amountTextField)
+        addView.configureAmountTextView(textField: amountTextField)
         addView.textFieldConfiguration(textField: categoryTextField)
         addView.textFieldConfiguration(textField: dateTextField)
         setUpDatePicker()

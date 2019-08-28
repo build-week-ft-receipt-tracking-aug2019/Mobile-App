@@ -81,7 +81,7 @@ class AddView {
         textField.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         textField.backgroundColor = .receiptGray
         
-        let spacerView = UIView(frame:CGRect(x:0, y:0, width: 12, height:10))
+        let spacerView = UIView(frame:CGRect(x:0, y:0, width: 8, height:10))
         textField.leftViewMode = UITextField.ViewMode.always
         textField.leftView = spacerView
     }
@@ -106,11 +106,6 @@ class AddView {
     func imageViewConfiguration(imageView: UIImageView) {
         // Set background color
         imageView.backgroundColor = .darkGray
-        
-        #warning("don't forget to create an outlet and pass in the view. Keep calm and code on - xoxo Alex")
-        // Set corner radius
-//        imageView.layer.cornerRadius = 5
-//        imageView.layer.masksToBounds = true
         
     }
     
