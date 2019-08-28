@@ -39,9 +39,11 @@ class LoginView {
     }
     
     func buttonConfiguration(button: UIButton) {
+        
         button.backgroundColor = .receiptMidGreen
         button.setTitle("LOGIN", for: .normal)
         button.setTitleColor(.receiptWhite, for: .normal)
         button.layer.cornerRadius = 5
+        
     }
 }

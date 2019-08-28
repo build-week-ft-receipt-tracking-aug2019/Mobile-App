@@ -11,42 +11,35 @@ import UIKit
 
 class AddView {
     
-    func datePickerConfiguration(picker: UIDatePicker) {
-        picker.datePickerMode = .date
-    }
-    
-    func categoryPickerConfiguration(picker: UIPickerView, textField: UITextField) {
-        
-        picker.backgroundColor = .black
-        picker.setValue(UIColor.receiptWhite, forKey: "textColor")
-        
-        let toolBar = UIToolbar()
-        toolBar.barStyle = UIBarStyle.default
-        toolBar.isTranslucent = true
-        toolBar.tintColor = .black
-        toolBar.sizeToFit()
-        
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: Selector(("donePicker")))
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: Selector(("donePicker")))
-        
-        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
-        toolBar.isUserInteractionEnabled = true
-
-        textField.inputView = picker
-        textField.inputAccessoryView = toolBar
-        
-//        picker.addSubview(toolBar)
-        
-    }
-    
     func viewConfiguration(view: UIView) {
+        
         // Set background color
         view.backgroundColor = .black
+        
     }
     
     func navBarConfiguration(navBar: UINavigationBar) {
-        // Setting navigation bar to a custom color
+        
+        // Setting navigation bar to black
+        navBar.barStyle = .black
+        
+    }
+    
+    func editUploadedPhoto(button: UIButton) {
+        
+        // Set background color
+        button.backgroundColor = .receiptMidGreen
+        
+        // Set title name
+        button.setTitle("EDIT RECEIPT IMAGE", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        
+        // Set corner radius
+        button.layer.cornerRadius = 5
+        
+    }
+    
+    func photoUploadButtonConfiguration(button: UIButton) {
         
         navBar.barStyle = .black
 //        navBar.barTintColor = .receiptMidGreen
@@ -69,9 +62,10 @@ class AddView {
         
         // Set corner radius
         button.layer.cornerRadius = 5
+        
     }
     
-    func textFieldConfiguration(textField: UITextField) {
+    func configureAmountTextView(textField: UITextField) {
         // Set background color
         textField.backgroundColor = .receiptGray
         
@@ -80,7 +74,30 @@ class AddView {
         textField.layer.cornerRadius = 5
         textField.clipsToBounds = true
         textField.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        textField.backgroundColor = .receiptWhite
+        textField.backgroundColor = .receiptGray
+        
+        let spacerView = UIView(frame:CGRect(x:0, y:0, width: 4, height:10))
+        textField.leftViewMode = UITextField.ViewMode.always
+        textField.leftView = spacerView
+        
+        textField.text = NSString(string: "$ ") as String
+    }
+    
+    func textFieldConfiguration(textField: UITextField) {
+        
+        // Set background color
+        textField.backgroundColor = .receiptGray
+        
+        // Fix border width, color, and corner radius
+        textField.layer.borderWidth = 1
+        textField.layer.cornerRadius = 5
+        textField.clipsToBounds = true
+        textField.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        textField.backgroundColor = .receiptGray
+        
+        let spacerView = UIView(frame:CGRect(x:0, y:0, width: 15, height:10))
+        textField.leftViewMode = UITextField.ViewMode.always
+        textField.leftView = spacerView
     }
 
 	func textLabelColorsWhite(textLabel: UILabel) {
@@ -103,21 +120,26 @@ class AddView {
     func imageViewConfiguration(imageView: UIImageView) {
         // Set background color
         imageView.backgroundColor = .darkGray
+        
+        #warning("don't forget to create an outlet and pass in the view. Keep calm and code on - xoxo Alex")
+        // Set corner radius
+//        imageView.layer.cornerRadius = 5
+//        imageView.layer.masksToBounds = true
+        
     }
     
-//    func datePickerConfiguration(picker: UIDatePicker) {
-//        // Set text color
-//        picker.setValue(UIColor.receiptWhite, forKey: "textColor")
-//    }
     
     func barButtonItemConfiguration(barButton: UIBarButtonItem) {
+        
         // Set text color
         barButton.tintColor = .receiptWhite
+        
     
     }
     
     func toolbarConfiguration(toolbar: UIToolbar) {
+        
         toolbar.barTintColor = .black
+        
     }
-    
 }

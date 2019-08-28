@@ -73,7 +73,7 @@ class UserController {
                     User(userRepresentation: self.user!)
                 }
                 
-                try CoreDataStack.shared.save()
+                try CoreDataStack.shared.save(context: context)
                 if let token = self.token {
                     KeychainWrapper.standard.set(token, forKey: "token")
                     completion(.success(token))
@@ -119,12 +119,15 @@ class UserController {
             }
             
             do {
-                self.user = try JSONDecoder().decode(UserRepresentation.self, from: data)
+                
+                let id = try JSONDecoder().decode([Int].self, from: data)
+                self.user = user
+                print("\(id)")
                 let context = CoreDataStack.shared.mainContext
                 context.performAndWait {
                     User(userRepresentation: self.user!)
                 }
-                try CoreDataStack.shared.save()
+                try CoreDataStack.shared.save(context: context)
             } catch {
                 completion(.noDecode)
             }

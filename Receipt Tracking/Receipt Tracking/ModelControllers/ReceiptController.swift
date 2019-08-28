@@ -29,9 +29,9 @@ class ReceiptController {
     
     
     // Create Receipt
-    func createReceipt(merchant: String, category: String, amountSpent: Double, date: Date, identifier: Int32, username: String) {
+    func createReceipt(merchant: String, category: String, amountSpent: Double, date: Date, username: String) {
         
-        let receiptRepresentation = ReceiptRepresentation(merchant: merchant, category: category, amountSpent: amountSpent, date: date, identifier: identifier, username: username)
+        let receiptRepresentation = ReceiptRepresentation(merchant: merchant, category: category, amountSpent: amountSpent, date: date, identifier: nil, username: username)
         
         post(receipt: receiptRepresentation)
     }
@@ -100,12 +100,14 @@ class ReceiptController {
             }
             
             do {
-                let receiptRepresentations = try JSONDecoder().decode([ReceiptRepresentation].self, from: data)
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                let receiptRepresentations = try decoder.decode([ReceiptRepresentation].self, from: data)
                 
                 self.updateReceipts(with: receiptRepresentations)
                 try CoreDataStack.shared.save()
             } catch {
-                NSLog("Error decoding entry representations \(error)")
+                NSLog("Error decoding receipt representations \(error)")
                 completion()
                 return
             }
@@ -115,18 +117,19 @@ class ReceiptController {
     
     // Post Receipt
     func post(receipt: ReceiptRepresentation, completion: @escaping () -> Void = { }) {
-        let requestURL: URL = baseURL.appendingPathComponent("receipts")
+        let requestURL: URL = baseURL.appendingPathComponent("receipt")
         var request = URLRequest(url: requestURL)
         request.httpMethod = HTTPMethod.post.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let token: String? = KeychainWrapper.standard.string(forKey: "token")
-        
         if let token = token {
             request.setValue("\(token)", forHTTPHeaderField: "Authorization")
         }
         
         do {
-            request.httpBody = try JSONEncoder().encode(receipt)
+            let encoder = JSONEncoder()
+            encoder.dateEncodingStrategy = .iso8601
+            request.httpBody = try encoder.encode(receipt)
         } catch {
             NSLog("Error encoding receipt \(receipt): \(error)")
             completion()
@@ -135,7 +138,7 @@ class ReceiptController {
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
-                NSLog("Error PUTting receipt to server: \(error)")
+                NSLog("Error POSTing receipt to server: \(error)")
                 completion()
                 return
             }
@@ -150,9 +153,9 @@ class ReceiptController {
                     receipt?.identifier = Int32(identifier)
                 }
                 
-                try CoreDataStack.shared.save()
+                try CoreDataStack.shared.save(context: moc)
             } catch {
-                NSLog("Error decoding tourID and saving tour: \(error)")
+                NSLog("Error decoding receipt and saving receipt: \(error)")
             }
             
             completion()

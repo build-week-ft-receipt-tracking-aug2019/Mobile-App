@@ -23,7 +23,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var emailTextField: UITextField!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setViews()
@@ -61,8 +60,6 @@ class LoginViewController: UIViewController {
     func login() {
         let check = completeFieldsChecker()
         if check == true {
-            //            loginRegisterButton.isEnabled = true
-            //            loginRegisterButton.alpha = 1
             guard let username = usernameTextField.text,
                 !username.isEmpty,
                 let email = emailTextField.text,
@@ -70,7 +67,7 @@ class LoginViewController: UIViewController {
                 let password = passwordTextField.text,
                 !password.isEmpty else { return }
             
-            let user = UserRepresentation(username: username, password: password, email: email, identifier: nil)
+            let user = UserRepresentation(username: username, password: password, email: email)
             userController.loginWith(user: user, loginType: .signIn) { (result) in
                 if (try? result.get()) != nil {
                     DispatchQueue.main.async {
@@ -95,7 +92,7 @@ class LoginViewController: UIViewController {
                 let password = passwordTextField.text,
                 !password.isEmpty else { return }
             
-            let user = UserRepresentation(username: username, password: password, email: email, identifier: nil)
+            let user = UserRepresentation(username: username, password: password, email: email)
             userController.registerWith(user: user, loginType: .signUp) { (error) in
                 if let error = error {
                     NSLog("Error registering with \(error)")
@@ -143,6 +140,5 @@ class LoginViewController: UIViewController {
         
         return checker
     }
-
 
 }
