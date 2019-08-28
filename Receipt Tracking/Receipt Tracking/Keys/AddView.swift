@@ -22,9 +22,21 @@ class AddView {
         
         // Setting navigation bar to black
         navBar.barStyle = .black
-        
+		navBar.barTintColor = .black
+        navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.receiptWhite]
+		navBar.tintColor = .white
+
     }
-    
+
+	func navBarConfiguration2(navBar: UINavigationBar) {
+
+		// Formatting the navigation bar in the ReceiptDetailVC
+		//navBar.barTintColor = .black
+		navBar.barStyle = .black
+		navBar.tintColor = .white
+		
+	}
+
     func editUploadedPhoto(button: UIButton) {
         
         // Set background color
