@@ -63,13 +63,17 @@ class AddView {
         textField.layer.cornerRadius = 5
         textField.clipsToBounds = true
         textField.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        textField.backgroundColor = .receiptWhite
+        textField.backgroundColor = .receiptGray
     }
     
     func imageViewConfiguration(imageView: UIImageView) {
-        
         // Set background color
         imageView.backgroundColor = .darkGray
+        
+        #warning("don't forget to create an outlet and pass in the view. Keep calm and code on - xoxo Alex")
+        // Set corner radius
+//        imageView.layer.cornerRadius = 5
+//        imageView.layer.masksToBounds = true
         
     }
     

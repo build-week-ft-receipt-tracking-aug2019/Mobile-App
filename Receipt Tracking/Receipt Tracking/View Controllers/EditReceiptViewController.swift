@@ -36,7 +36,6 @@ class EditReceiptViewController: UIViewController, UITextFieldDelegate, UIPicker
     
     private func setViews() {
         
-//        addView.navBarConfiguration(navBar: navigationController!.navigationBar)
         addView.barButtonItemConfiguration(barButton: cancelBarButton)
         addView.barButtonItemConfiguration(barButton: saveBarButton)
         addView.imageViewConfiguration(imageView: receiptImageView)
