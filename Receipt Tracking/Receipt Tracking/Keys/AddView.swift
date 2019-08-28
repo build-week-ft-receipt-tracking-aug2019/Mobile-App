@@ -52,17 +52,17 @@ class AddView {
     }
     
     func photoUploadButtonConfiguration(button: UIButton) {
+        // Set background color
+        button.backgroundColor = .receiptMidGreen
         
-//        navBar.barTintColor = .receiptMidGreen
-//        navBar.backgroundColor = .receiptMidGreen
-//
-
-
-
-		
+        // Set title name
+        button.setTitle("UPLOAD RECEIPT IMAGE", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        
+        // Set corner radius
+        button.layer.cornerRadius = 5
+        
     }
-    
-
     
     func configureAmountTextView(textField: UITextField) {
         // Set background color
@@ -75,11 +75,10 @@ class AddView {
         textField.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         textField.backgroundColor = .receiptGray
         
-        let spacerView = UIView(frame:CGRect(x:0, y:0, width: 4, height:10))
+        let spacerView = UIView(frame:CGRect(x:0, y:0, width: 18, height:10))
         textField.leftViewMode = UITextField.ViewMode.always
         textField.leftView = spacerView
         
-        textField.text = NSString(string: "$ ") as String
     }
     
     func textFieldConfiguration(textField: UITextField) {
@@ -94,7 +93,7 @@ class AddView {
         textField.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         textField.backgroundColor = .receiptGray
         
-        let spacerView = UIView(frame:CGRect(x:0, y:0, width: 15, height:10))
+        let spacerView = UIView(frame:CGRect(x:0, y:0, width: 8, height:10))
         textField.leftViewMode = UITextField.ViewMode.always
         textField.leftView = spacerView
     }
@@ -119,11 +118,6 @@ class AddView {
     func imageViewConfiguration(imageView: UIImageView) {
         // Set background color
         imageView.backgroundColor = .darkGray
-        
-        #warning("don't forget to create an outlet and pass in the view. Keep calm and code on - xoxo Alex")
-        // Set corner radius
-//        imageView.layer.cornerRadius = 5
-//        imageView.layer.masksToBounds = true
         
     }
     

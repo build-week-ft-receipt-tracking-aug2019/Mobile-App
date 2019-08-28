@@ -35,6 +35,7 @@ class ReceiptDetailViewController: UIViewController {
 		viewDetails.navBarConfiguration2(navBar: navigationController!.navigationBar)
 		viewDetails.viewConfiguration(view: view)
 		viewDetails.barButtonItemConfiguration(barButton: editButtonLabel)
+		viewDetails.navBarConfiguration(navBar: navigationController!.navigationBar)
 
 		// Formats label for merchant and price labels
 		viewDetails.textLabelColorsWhite(textLabel: merchantLabelText)

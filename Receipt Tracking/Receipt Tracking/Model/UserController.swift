@@ -10,7 +10,9 @@ import Foundation
 import CoreData
 
 enum NetworkError: Error {
-    case otherError
+    case noAuth
+    case badAuth
+    case otherError(Error)
     case badData
     case noDecode
     case noEncode
@@ -52,8 +54,8 @@ class UserController {
                 return
             }
             
-            if error != nil {
-                completion(.failure(.otherError))
+            if let error = error {
+                completion(.failure(.otherError(error)))
                 return
             }
             
@@ -108,8 +110,8 @@ class UserController {
                 return
             }
             
-            if error != nil {
-                completion(.otherError)
+            if let error = error {
+                completion(.otherError(error))
                 return
             }
             

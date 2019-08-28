@@ -100,7 +100,7 @@
                     <navigationItem key="navigationItem" title="Receipts" id="v2k-wG-Yat">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xvD-78-9O5">
                             <connections>
-                                <segue destination="5yo-KU-eif" kind="presentation" identifier="AddReceiptSegue" id="3oO-Ng-Q2z"/>
+                                <segue destination="5yo-KU-eif" kind="show" id="Tcq-vP-8Kh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -140,7 +140,7 @@
                 <viewControllerPlaceholder storyboardName="Login" id="uEI-7H-bEG" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6fD-O6-KSF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1505" y="-257"/>
+            <point key="canvasLocation" x="1383" y="-554"/>
         </scene>
         <!--ReceiptDetail-->
         <scene sceneID="ze3-Rr-mBb">
@@ -156,7 +156,7 @@
                 <viewControllerPlaceholder storyboardName="AddReceipt" id="5yo-KU-eif" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h7i-J9-lUo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1530" y="-225"/>
+            <point key="canvasLocation" x="1522" y="-260"/>
         </scene>
     </scenes>
 </document>
