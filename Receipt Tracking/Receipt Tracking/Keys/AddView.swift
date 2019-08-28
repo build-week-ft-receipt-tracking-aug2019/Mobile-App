@@ -53,6 +53,24 @@ class AddView {
         
     }
     
+    func configureAmountTextView(textField: UITextField) {
+        // Set background color
+        textField.backgroundColor = .receiptGray
+        
+        // Fix border width, color, and corner radius
+        textField.layer.borderWidth = 1
+        textField.layer.cornerRadius = 5
+        textField.clipsToBounds = true
+        textField.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        textField.backgroundColor = .receiptGray
+        
+        let spacerView = UIView(frame:CGRect(x:0, y:0, width: 4, height:10))
+        textField.leftViewMode = UITextField.ViewMode.always
+        textField.leftView = spacerView
+        
+        textField.text = NSString(string: "$ ") as String
+    }
+    
     func textFieldConfiguration(textField: UITextField) {
         
         // Set background color
@@ -64,6 +82,10 @@ class AddView {
         textField.clipsToBounds = true
         textField.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         textField.backgroundColor = .receiptGray
+        
+        let spacerView = UIView(frame:CGRect(x:0, y:0, width: 15, height:10))
+        textField.leftViewMode = UITextField.ViewMode.always
+        textField.leftView = spacerView
     }
     
     func imageViewConfiguration(imageView: UIImageView) {

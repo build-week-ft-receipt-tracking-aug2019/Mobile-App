@@ -43,9 +43,9 @@ class EditReceiptViewController: UIViewController, UITextFieldDelegate, UIPicker
         addView.viewConfiguration(view: view)
         addView.toolbarConfiguration(toolbar: toolbar)
         addView.textFieldConfiguration(textField: merchantTextField)
-        addView.textFieldConfiguration(textField: amountTextField)
         addView.textFieldConfiguration(textField: categoryTextField)
         addView.textFieldConfiguration(textField: dateTextField)
+        addView.configureAmountTextView(textField: amountTextField)
         
         // Configuring Date Picker view
         datePicker.datePickerMode = .date
