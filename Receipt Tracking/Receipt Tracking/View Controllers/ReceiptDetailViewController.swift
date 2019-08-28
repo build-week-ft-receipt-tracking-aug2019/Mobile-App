@@ -10,21 +10,46 @@ import UIKit
 
 class ReceiptDetailViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	// MARK: - Properties
+	var viewDetails = AddView()
 
-        // Do any additional setup after loading the view.
+	// Mark: - Outlets
+	@IBOutlet weak var merchantLabelText: UILabel!
+	@IBOutlet weak var dateLabelText: UILabel!
+	@IBOutlet weak var categoryLabelText: UILabel!
+	@IBOutlet weak var priceLabelText: UILabel!
+	@IBOutlet weak var imageView: UIImageView!
+	@IBOutlet weak var editButtonLabel: UIBarButtonItem!
+
+	override func viewDidLoad() {
+        super.viewDidLoad()
+		setupViews()
+		
     }
+
+	
+
+	private func setupViews() {
+
+		// Formats navigation bar and view background
+		viewDetails.navBarConfiguration2(navBar: navigationController!.navigationBar)
+		viewDetails.viewConfiguration(view: view)
+		viewDetails.barButtonItemConfiguration(barButton: editButtonLabel)
+		viewDetails.navBarConfiguration(navBar: navigationController!.navigationBar)
+
+		// Formats label for merchant and price labels
+		viewDetails.textLabelColorsWhite(textLabel: merchantLabelText)
+		viewDetails.textLabelColorsWhite(textLabel: priceLabelText)
+
+		// Formats the date label
+		viewDetails.textlabelColorsLightGreen(textLabel: dateLabelText)
+		viewDetails.textlabelColorsLightGreen(textLabel: categoryLabelText)
+
+		viewDetails.imageViewConfiguration(imageView: imageView)
+
+	}
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

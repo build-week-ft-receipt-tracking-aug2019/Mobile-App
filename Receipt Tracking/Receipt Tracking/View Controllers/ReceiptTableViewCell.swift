@@ -19,31 +19,28 @@ class ReceiptTableViewCell: UITableViewCell {
 
 
 	var receipt: ReceiptRepresentation? {
-
 		didSet {
 			updateViews()
 		}
 	}
-
+    var secondsFromGMT: Int { return TimeZone.current.secondsFromGMT() }
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM-dd-yyyy"
+        formatter.timeZone = TimeZone(secondsFromGMT: secondsFromGMT)
+        return formatter
+    }
 
 	private func updateViews() {
-		guard let receipt = receipt, let date = receipt.date, let amountSpent = receipt.amountSpent else { return }
-
+		guard let receipt = receipt,
+              let date = receipt.date,
+               let amount = receipt.amountSpent else { return }
+       
+        let amountString = "$\(amount)"
 		merchantLabel.text = receipt.merchant
-		dateLabel.text = "\(date)"
+		dateLabel.text = dateFormatter.string(from: date)
 		categoryLabel.text = receipt.category
-		amountSpentLabel.text = "\(amountSpent)"
+		amountSpentLabel.text = amountString
 	}
-
-	override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+    
 }

@@ -8,8 +8,7 @@
 
 import Foundation
 
-struct Users: Codable {
-    var users: UserRepresentation
+struct UserResult: Codable {
     var token: String
 }
 
@@ -17,19 +16,19 @@ struct UserRepresentation: Codable {
     var username: String?
     var password: String?
     var email: String?
-    var identifier: Int?
     
     enum CodingKeys: String, CodingKey {
         case username
         case password
         case email
-        case identifier = "id"
     }
 }
 
 extension UserRepresentation: Equatable {
     static func == (lhs: UserRepresentation, rhs: User) -> Bool {
-        return lhs.identifier == Int(rhs.identifier)
+        return lhs.username == rhs.username &&
+        lhs.password == rhs.password &&
+        lhs.email == rhs.email
     }
     
     static func == (lhs: User, rhs: UserRepresentation) -> Bool {

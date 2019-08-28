@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2CT-cf-J4f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aRu-xg-IiU">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Detail Title-->
+        <!--Receipt Details-->
         <scene sceneID="a4h-mb-G7d">
             <objects>
                 <viewController id="aRu-xg-IiU" customClass="ReceiptDetailViewController" customModule="Receipt_Tracking" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,24 +18,71 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Receipt Detail View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wV2-4V-IxI">
-                                <rect key="frame" x="50" y="207" width="148" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Merchant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMc-oo-uSr">
+                                <rect key="frame" x="20" y="108" width="107" height="31.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMc-wc-ed4">
+                                <rect key="frame" x="20" y="159.5" width="107" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.35686274509803922" green="0.72941176470588232" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7N-T8-0yP">
+                                <rect key="frame" x="20" y="200.5" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.23137254901960785" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1FK-VV-69C">
+                                <rect key="frame" x="350" y="115.5" width="44" height="24"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0gP-1S-WVm">
+                                <rect key="frame" x="40" y="261.5" width="334" height="570.5"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oXj-ND-UXC" firstAttribute="trailing" secondItem="1FK-VV-69C" secondAttribute="trailing" constant="20" id="1D0-V8-ukb"/>
+                            <constraint firstItem="oXj-ND-UXC" firstAttribute="bottom" secondItem="0gP-1S-WVm" secondAttribute="bottom" constant="30" id="9ef-QI-PaL"/>
+                            <constraint firstItem="QMc-oo-uSr" firstAttribute="top" secondItem="oXj-ND-UXC" secondAttribute="top" constant="20" id="Cle-tT-pWY"/>
+                            <constraint firstItem="0gP-1S-WVm" firstAttribute="top" secondItem="z7N-T8-0yP" secondAttribute="bottom" constant="40" id="Cr1-jk-9Gz"/>
+                            <constraint firstItem="qMc-wc-ed4" firstAttribute="leading" secondItem="QMc-oo-uSr" secondAttribute="leading" id="KGj-XP-dIe"/>
+                            <constraint firstItem="z7N-T8-0yP" firstAttribute="leading" secondItem="qMc-wc-ed4" secondAttribute="leading" id="OHI-Pt-OEp"/>
+                            <constraint firstItem="0gP-1S-WVm" firstAttribute="leading" secondItem="oXj-ND-UXC" secondAttribute="leading" constant="40" id="SUl-GR-Mxd"/>
+                            <constraint firstItem="1FK-VV-69C" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QMc-oo-uSr" secondAttribute="trailing" constant="10" id="U2F-5r-eyR"/>
+                            <constraint firstItem="qMc-wc-ed4" firstAttribute="trailing" secondItem="QMc-oo-uSr" secondAttribute="trailing" id="V9D-hH-DTK"/>
+                            <constraint firstItem="qMc-wc-ed4" firstAttribute="top" secondItem="QMc-oo-uSr" secondAttribute="bottom" constant="20" id="dI4-XA-FR7"/>
+                            <constraint firstItem="1FK-VV-69C" firstAttribute="bottom" secondItem="QMc-oo-uSr" secondAttribute="bottom" id="gmU-dy-7eh"/>
+                            <constraint firstItem="z7N-T8-0yP" firstAttribute="top" secondItem="qMc-wc-ed4" secondAttribute="bottom" constant="20" id="nwn-RI-UKF"/>
+                            <constraint firstItem="QMc-oo-uSr" firstAttribute="leading" secondItem="oXj-ND-UXC" secondAttribute="leading" constant="20" id="rGW-CQ-4HS"/>
+                            <constraint firstItem="oXj-ND-UXC" firstAttribute="trailing" secondItem="0gP-1S-WVm" secondAttribute="trailing" constant="40" id="vDQ-XP-zij"/>
+                            <constraint firstItem="oXj-ND-UXC" firstAttribute="trailing" secondItem="z7N-T8-0yP" secondAttribute="trailing" constant="20" id="vjY-Uu-bwc"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="oXj-ND-UXC"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Detail Title" id="nj1-CQ-C4u">
+                    <navigationItem key="navigationItem" title="Receipt Details" largeTitleDisplayMode="always" id="nj1-CQ-C4u">
+                        <barButtonItem key="backBarButtonItem" title="Receipts" id="CbA-0O-oRX"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="VCF-W6-n2O">
                             <connections>
                                 <segue destination="7Qm-wS-AYk" kind="show" id="0qo-mh-cPt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <connections>
+                        <outlet property="categoryLabelText" destination="z7N-T8-0yP" id="D3U-kK-gyv"/>
+                        <outlet property="dateLabelText" destination="qMc-wc-ed4" id="Mp4-T0-Lny"/>
+                        <outlet property="editButtonLabel" destination="VCF-W6-n2O" id="MEe-7X-1U7"/>
+                        <outlet property="imageView" destination="0gP-1S-WVm" id="bao-0t-zmf"/>
+                        <outlet property="merchantLabelText" destination="QMc-oo-uSr" id="Ka0-Ug-HRq"/>
+                        <outlet property="priceLabelText" destination="1FK-VV-69C" id="LHr-MG-CHA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vqk-Qh-JiP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -48,24 +95,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EAj-jo-NSk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3940" y="-381"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="0kZ-qe-cRP">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2CT-cf-J4f" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="cvl-sY-375">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="aRu-xg-IiU" kind="relationship" relationship="rootViewController" id="96a-Jh-A4C"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fAf-dL-7a1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2344.9275362318845" y="-243.08035714285714"/>
         </scene>
     </scenes>
 </document>

@@ -10,7 +10,9 @@ import Foundation
 import CoreData
 
 enum NetworkError: Error {
-    case otherError
+    case noAuth
+    case badAuth
+    case otherError(Error)
     case badData
     case noDecode
     case noEncode
@@ -46,14 +48,14 @@ class UserController {
         }
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let response = response as? HTTPURLResponse, response.statusCode != 200 {
+            if let response = response as? HTTPURLResponse, response.statusCode != 201 {
                 print(response.statusCode)
                 completion(.failure(.badResponse))
                 return
             }
             
-            if error != nil {
-                completion(.failure(.otherError))
+            if let error = error {
+                completion(.failure(.otherError(error)))
                 return
             }
             
@@ -64,16 +66,16 @@ class UserController {
             
             let jsonDecoder = JSONDecoder()
             do {
-                let result = try jsonDecoder.decode(Users.self, from: data)
+                let result = try jsonDecoder.decode(UserResult.self, from: data)
                 self.token = result.token
-                self.user = result.users
+                self.user = user
                 let context = CoreDataStack.shared.mainContext
                 
                 context.performAndWait {
                     User(userRepresentation: self.user!)
                 }
                 
-                try CoreDataStack.shared.save()
+                try CoreDataStack.shared.save(context: context)
                 if let token = self.token {
                     KeychainWrapper.standard.set(token, forKey: "token")
                     completion(.success(token))
@@ -108,8 +110,8 @@ class UserController {
                 return
             }
             
-            if error != nil {
-                completion(.otherError)
+            if let error = error {
+                completion(.otherError(error))
                 return
             }
             
@@ -119,12 +121,15 @@ class UserController {
             }
             
             do {
-                self.user = try JSONDecoder().decode(UserRepresentation.self, from: data)
+                
+                let id = try JSONDecoder().decode([Int].self, from: data)
+                self.user = user
+                print("\(id)")
                 let context = CoreDataStack.shared.mainContext
                 context.performAndWait {
                     User(userRepresentation: self.user!)
                 }
-                try CoreDataStack.shared.save()
+                try CoreDataStack.shared.save(context: context)
             } catch {
                 completion(.noDecode)
             }

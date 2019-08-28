@@ -10,19 +10,19 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Receipts-->
+        <!--Receipt-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ReceiptListViewController" customModule="Receipt_Tracking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Receipt" id="BYZ-38-t0r" customClass="ReceiptListViewController" customModule="Receipt_Tracking" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kDY-O6-uZl">
-                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
+                                <rect key="frame" x="0.0" y="40" width="414" height="682"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RecieptCell" rowHeight="60" id="FPs-WN-lOf" customClass="ReceiptTableViewCell" customModule="Receipt_Tracking" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReceiptCell" rowHeight="60" id="FPs-WN-lOf" customClass="ReceiptTableViewCell" customModule="Receipt_Tracking" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FPs-WN-lOf" id="A6k-7Q-fP8">
@@ -75,12 +75,23 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="dRO-jG-AR2"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="syU-jF-8MP"/>
+                                </connections>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="fFT-h8-1qV">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="fFT-h8-1qV" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="1Xf-AL-RzL"/>
                             <constraint firstItem="kDY-O6-uZl" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="3qc-dP-66z"/>
-                            <constraint firstItem="kDY-O6-uZl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="XaP-Vr-ev5"/>
+                            <constraint firstItem="fFT-h8-1qV" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="DwA-jm-Rya"/>
+                            <constraint firstItem="fFT-h8-1qV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HVq-ly-3Op"/>
+                            <constraint firstItem="kDY-O6-uZl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="XaP-Vr-ev5"/>
                             <constraint firstItem="kDY-O6-uZl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="pjI-2u-0ax"/>
                             <constraint firstItem="kDY-O6-uZl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qPj-Ak-oZW"/>
                         </constraints>
@@ -89,7 +100,7 @@
                     <navigationItem key="navigationItem" title="Receipts" id="v2k-wG-Yat">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xvD-78-9O5">
                             <connections>
-                                <segue destination="5yo-KU-eif" kind="presentation" identifier="AddReceiptSegue" id="3oO-Ng-Q2z"/>
+                                <segue destination="5yo-KU-eif" kind="show" id="Tcq-vP-8Kh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -102,14 +113,17 @@
             </objects>
             <point key="canvasLocation" x="771.01449275362324" y="-235.04464285714283"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Receipts-->
         <scene sceneID="cAb-mr-yeo">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VeG-EX-SBO" sceneMemberID="viewController">
+                <navigationController title="Receipts" automaticallyAdjustsScrollViewInsets="NO" id="VeG-EX-SBO" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="haT-ya-aKK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="haT-ya-aKK">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -126,7 +140,7 @@
                 <viewControllerPlaceholder storyboardName="Login" id="uEI-7H-bEG" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6fD-O6-KSF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1505" y="-257"/>
+            <point key="canvasLocation" x="1383" y="-554"/>
         </scene>
         <!--ReceiptDetail-->
         <scene sceneID="ze3-Rr-mBb">
@@ -142,7 +156,7 @@
                 <viewControllerPlaceholder storyboardName="AddReceipt" id="5yo-KU-eif" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h7i-J9-lUo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1530" y="-225"/>
+            <point key="canvasLocation" x="1522" y="-260"/>
         </scene>
     </scenes>
 </document>
