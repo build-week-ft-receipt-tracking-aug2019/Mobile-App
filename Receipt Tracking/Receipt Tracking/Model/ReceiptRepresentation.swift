@@ -14,7 +14,17 @@ struct ReceiptRepresentation: Codable {
     let category: String?
     let amountSpent: Double?
     let date: Date?
-    let identifier: String?
+    let identifier: Int32?
+    let username: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case merchant
+        case category
+        case amountSpent = "amount_spent"
+        case date
+        case identifier = "id"
+        case username = "user_username"
+    }
 }
 
 func ==(lhs: ReceiptRepresentation, rhs: Receipt) -> Bool {

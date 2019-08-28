@@ -15,16 +15,8 @@ class ReceiptListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setViews()
-    }
-    
-    private func setViews() {
-
-    }
-    
     let receiptController = ReceiptController.shared
+    
     var user: UserRepresentation {
         let moc = CoreDataStack.shared.mainContext
         let request: NSFetchRequest<User> = User.fetchRequest()
@@ -66,23 +58,56 @@ class ReceiptListViewController: UIViewController {
     
     // MARK: - View LifeCycle
     
-	override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         print("\(token ?? "")")
         // check if first launch or not logged in
-        if token == nil {
+        if UserDefaults.isFirstLaunch() && token == nil {
             performSegue(withIdentifier: "LoginViewModalSegue", sender: self)
         } else if token == nil {
             performSegue(withIdentifier: "LoginViewModalSegue", sender: self)
         } else if user.identifier == nil {
             performSegue(withIdentifier: "LoginViewModalSegue", sender: self)
         }
+        
+        if let username = user.username,
+            token != nil {
+            receiptController.fetchReceiptsFromServer(username: username)
+        }
     }
-
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setViews()
+    }
+    
+    private func setViews() {
+        
+    }
 }
 
 // MARK: - Extensions
+
+extension ReceiptListViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return fetchedResultsController.sections?[section].name
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return fetchedResultsController.sections?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RecieptCell") as? ReceiptTableViewCell else { return UITableViewCell()}
+        let receipt = fetchedResultsController.object(at: indexPath)
+        cell.receipt = receipt
+        return cell
+    }
+}
 
 extension ReceiptListViewController: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
