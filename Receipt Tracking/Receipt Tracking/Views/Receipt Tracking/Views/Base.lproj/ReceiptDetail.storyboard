@@ -73,6 +73,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="categoryLabelText" destination="z7N-T8-0yP" id="D3U-kK-gyv"/>
+                        <outlet property="dateLabelText" destination="qMc-wc-ed4" id="Mp4-T0-Lny"/>
+                        <outlet property="editButtonLabel" destination="VCF-W6-n2O" id="MEe-7X-1U7"/>
+                        <outlet property="imageView" destination="0gP-1S-WVm" id="bao-0t-zmf"/>
+                        <outlet property="merchantLabelText" destination="QMc-oo-uSr" id="Ka0-Ug-HRq"/>
+                        <outlet property="priceLabelText" destination="1FK-VV-69C" id="LHr-MG-CHA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vqk-Qh-JiP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

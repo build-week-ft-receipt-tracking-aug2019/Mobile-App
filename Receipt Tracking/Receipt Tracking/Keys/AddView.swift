@@ -41,6 +41,18 @@ class AddView {
     
     func photoUploadButtonConfiguration(button: UIButton) {
         
+        navBar.barStyle = .black
+//        navBar.barTintColor = .receiptMidGreen
+//        navBar.backgroundColor = .receiptMidGreen
+//
+		navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.receiptWhite]
+
+		navBar.tintColor = .white
+
+		
+    }
+    
+    func photoUploadButtonConfiguration(button: UIButton) {
         // Set background color
         button.backgroundColor = .receiptMidGreen
         
@@ -87,6 +99,23 @@ class AddView {
         textField.leftViewMode = UITextField.ViewMode.always
         textField.leftView = spacerView
     }
+
+	func textLabelColorsWhite(textLabel: UILabel) {
+		// Sets the text label color to white
+		textLabel.textColor = .receiptWhite
+	}
+
+	func textLabelColorsDarkGreen(textLabel: UILabel) {
+		// Sets the text label color to dark green
+		textLabel.textColor = .receiptDarkGreen
+	}
+
+	func textlabelColorsLightGreen(textLabel: UILabel) {
+		// Sets the text label coloe to light green
+		textLabel.textColor = .receiptLightGreen
+	}
+
+
     
     func imageViewConfiguration(imageView: UIImageView) {
         // Set background color
