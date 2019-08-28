@@ -14,6 +14,7 @@ class ReceiptListViewController: UIViewController {
     // MARK: - IBOutlets & Properties
 
     @IBOutlet weak var tableView: UITableView!
+
     
 	var viewDetails = AddView()
 	let receiptController = ReceiptController.shared
@@ -73,7 +74,7 @@ class ReceiptListViewController: UIViewController {
 
 		// Change the background color of the table view
 		setupViews()
-		self.tableView.backgroundColor = UIColor.lightGray
+		//self.tableView.backgroundColor = UIColor.lightGray
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -87,6 +88,7 @@ class ReceiptListViewController: UIViewController {
     }
 
 
+	// MARK: - Setup views
 	private func setupViews() {
 
 		// Formats navigation bar and view background
@@ -94,7 +96,9 @@ class ReceiptListViewController: UIViewController {
 		viewDetails.viewConfiguration(view: view)
 		viewDetails.navBarConfiguration(navBar: navigationController!.navigationBar)
 
+		viewDetails.tableViewConfiguration(tableView: tableView)
 
+		
 
 	}
     
