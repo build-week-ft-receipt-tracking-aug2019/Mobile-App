@@ -49,6 +49,7 @@ class AddReceiptViewController: UIViewController, UITextFieldDelegate, UIPickerV
         addView.textFieldConfiguration(textField: dateTextField)
         
         // Configuring Date Picker view
+        datePicker.datePickerMode = .date
         datePicker.backgroundColor = .black
         datePicker.setValue(UIColor.receiptWhite, forKey: "textColor")
         
