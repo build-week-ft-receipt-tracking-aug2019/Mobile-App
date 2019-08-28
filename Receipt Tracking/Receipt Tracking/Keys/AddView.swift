@@ -11,6 +11,35 @@ import UIKit
 
 class AddView {
     
+    func datePickerConfiguration(picker: UIDatePicker) {
+        picker.datePickerMode = .date
+    }
+    
+    func categoryPickerConfiguration(picker: UIPickerView, textField: UITextField) {
+        
+        picker.backgroundColor = .black
+        picker.setValue(UIColor.receiptWhite, forKey: "textColor")
+        
+        let toolBar = UIToolbar()
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = .black
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: Selector(("donePicker")))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: Selector(("donePicker")))
+        
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+
+        textField.inputView = picker
+        textField.inputAccessoryView = toolBar
+        
+//        picker.addSubview(toolBar)
+        
+    }
+    
     func viewConfiguration(view: UIView) {
         // Set background color
         view.backgroundColor = .black
@@ -54,10 +83,10 @@ class AddView {
         imageView.backgroundColor = .darkGray
     }
     
-    func datePickerConfiguration(picker: UIDatePicker) {
-        // Set text color
-        picker.setValue(UIColor.receiptWhite, forKey: "textColor")
-    }
+//    func datePickerConfiguration(picker: UIDatePicker) {
+//        // Set text color
+//        picker.setValue(UIColor.receiptWhite, forKey: "textColor")
+//    }
     
     func barButtonItemConfiguration(barButton: UIBarButtonItem) {
         // Set text color
