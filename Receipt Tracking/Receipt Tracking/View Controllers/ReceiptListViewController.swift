@@ -36,13 +36,11 @@ class ReceiptListViewController: UIViewController {
         let fetchRequest: NSFetchRequest<Receipt> = Receipt.fetchRequest()
         
         // FRCs need at least one sort descriptor. If you are using "sectionNameKeyPath", the first sort descriptor must be the same attribute
+        let categoryDescriptor = NSSortDescriptor(key: "category", ascending: false)
         let dateDescriptor = NSSortDescriptor(key: "date", ascending: true)
-        fetchRequest.sortDescriptors = [dateDescriptor]
+        fetchRequest.sortDescriptors = [categoryDescriptor, dateDescriptor]
         
-        let moc = CoreDataStack.shared.mainContext
-        
-        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
-        
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.shared.mainContext, sectionNameKeyPath: "category", cacheName: nil)
         frc.delegate = self
         
         do {
@@ -60,13 +58,15 @@ class ReceiptListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
         print("\(token ?? "")")
         // check if first launch or not logged in
         if UserDefaults.isFirstLaunch() && token == nil {
             performSegue(withIdentifier: "LoginViewModalSegue", sender: self)
         } else if token == nil {
             performSegue(withIdentifier: "LoginViewModalSegue", sender: self)
-        } else if user.identifier == nil {
+        } else if user.username == nil {
             performSegue(withIdentifier: "LoginViewModalSegue", sender: self)
         }
         
@@ -74,6 +74,12 @@ class ReceiptListViewController: UIViewController {
             token != nil {
             receiptController.fetchReceiptsFromServer(username: username)
         }
+        tableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -102,7 +108,7 @@ extension ReceiptListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RecieptCell") as? ReceiptTableViewCell else { return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ReceiptCell", for: indexPath ) as? ReceiptTableViewCell else { return UITableViewCell() }
         let receipt = fetchedResultsController.object(at: indexPath)
         cell.receipt = receipt
         return cell
