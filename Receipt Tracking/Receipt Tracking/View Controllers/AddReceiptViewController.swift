@@ -126,7 +126,7 @@ class AddReceiptViewController: UIViewController, UITextFieldDelegate {
     // MARK: Storyboard Actions
     
     @IBAction func toolBarCancelButtonTapped(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true)
     }
     
     @IBAction func uploadPhotoButtonTapped(_ sender: UIButton) {
@@ -134,7 +134,7 @@ class AddReceiptViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func toolBarSaveButtonTapped(_ sender: UIBarButtonItem) {
         addReceipt()
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true)
     }
     
 
