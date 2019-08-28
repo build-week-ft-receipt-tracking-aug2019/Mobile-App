@@ -18,7 +18,7 @@ class ReceiptTableViewCell: UITableViewCell {
 	@IBOutlet weak var amountSpentLabel: UILabel!
 
 
-	var receipt: Receipt? {
+	var receipt: ReceiptRepresentation? {
 		didSet {
 			updateViews()
 		}
@@ -26,16 +26,17 @@ class ReceiptTableViewCell: UITableViewCell {
     var secondsFromGMT: Int { return TimeZone.current.secondsFromGMT() }
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
-        formatter.dateFormat = "MM-dd-yy, h:mm a"
+        formatter.dateFormat = "MMM-dd-yyyy"
         formatter.timeZone = TimeZone(secondsFromGMT: secondsFromGMT)
         return formatter
     }
 
 	private func updateViews() {
 		guard let receipt = receipt,
-              let date = receipt.date else { return }
-        let amountString = String(receipt.amountSpent)
-
+              let date = receipt.date,
+               let amount = receipt.amountSpent else { return }
+       
+        let amountString = "$\(amount)"
 		merchantLabel.text = receipt.merchant
 		dateLabel.text = dateFormatter.string(from: date)
 		categoryLabel.text = receipt.category

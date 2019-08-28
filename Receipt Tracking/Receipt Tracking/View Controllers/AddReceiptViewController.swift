@@ -73,7 +73,7 @@ class AddReceiptViewController: UIViewController, UITextFieldDelegate {
         addView.viewConfiguration(view: view)
         addView.toolbarConfiguration(toolbar: toolbar)
         addView.textFieldConfiguration(textField: merchantTextField)
-        addView.textFieldConfiguration(textField: amountTextField)
+        addView.configureAmountTextView(textField: amountTextField)
         addView.textFieldConfiguration(textField: categoryTextField)
         addView.textFieldConfiguration(textField: dateTextField)
         setUpDatePicker()
@@ -126,7 +126,7 @@ class AddReceiptViewController: UIViewController, UITextFieldDelegate {
     // MARK: Storyboard Actions
     
     @IBAction func toolBarCancelButtonTapped(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true)
     }
     
     @IBAction func uploadPhotoButtonTapped(_ sender: UIButton) {
@@ -134,7 +134,7 @@ class AddReceiptViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func toolBarSaveButtonTapped(_ sender: UIBarButtonItem) {
         addReceipt()
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true)
     }
     
 
