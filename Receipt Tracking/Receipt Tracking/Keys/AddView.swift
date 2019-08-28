@@ -63,7 +63,7 @@ class AddView {
         textField.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         textField.backgroundColor = .receiptGray
         
-        let spacerView = UIView(frame:CGRect(x:0, y:0, width: 20, height:10))
+        let spacerView = UIView(frame:CGRect(x:0, y:0, width: 18, height:10))
         textField.leftViewMode = UITextField.ViewMode.always
         textField.leftView = spacerView
         
