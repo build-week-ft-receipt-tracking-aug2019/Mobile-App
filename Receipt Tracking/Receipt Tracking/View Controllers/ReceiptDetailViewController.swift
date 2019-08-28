@@ -27,15 +27,14 @@ class ReceiptDetailViewController: UIViewController {
 		
     }
 
+	
+
 	private func setupViews() {
 
 		// Formats navigation bar and view background
-		viewDetails.navBarConfiguration(navBar: navigationController!.navigationBar)
+		viewDetails.navBarConfiguration2(navBar: navigationController!.navigationBar)
 		viewDetails.viewConfiguration(view: view)
 		viewDetails.barButtonItemConfiguration(barButton: editButtonLabel)
-		viewDetails.navBarConfiguration(navBar: self.title)
-
-
 
 		// Formats label for merchant and price labels
 		viewDetails.textLabelColorsWhite(textLabel: merchantLabelText)
@@ -43,6 +42,9 @@ class ReceiptDetailViewController: UIViewController {
 
 		// Formats the date label
 		viewDetails.textlabelColorsLightGreen(textLabel: dateLabelText)
+		viewDetails.textlabelColorsLightGreen(textLabel: categoryLabelText)
+
+		viewDetails.imageViewConfiguration(imageView: imageView)
 
 	}
     
