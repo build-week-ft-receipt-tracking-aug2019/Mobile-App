@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class AddReceiptViewController: UIViewController, UITextFieldDelegate {
+class AddReceiptViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate {
     
     // MARK: - IBOutlets & Properties
     
@@ -18,13 +18,14 @@ class AddReceiptViewController: UIViewController, UITextFieldDelegate {
     var categoryPicker: UIPickerView! = UIPickerView()
     var datePicker: UIDatePicker! = UIDatePicker()
     var receiptController = ReceiptController.shared
+    var imagePickerController = UIImagePickerController()
     var receipt: Receipt?
     var category: Category?
     var selectedDate: Date?
     var secondsFromGMT: Int { return TimeZone.current.secondsFromGMT() }
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
-        formatter.dateFormat = "MM-dd-yy, h:mm a"
+        formatter.dateFormat = "MMM dd, yyyy"
         formatter.timeZone = TimeZone(secondsFromGMT: secondsFromGMT)
         return formatter
     }
@@ -59,7 +60,7 @@ class AddReceiptViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setViews()
-        
+        imagePickerController.delegate = self
     }
     
     // MARK: - Methods
@@ -123,6 +124,8 @@ class AddReceiptViewController: UIViewController, UITextFieldDelegate {
         receiptController.createReceipt(merchant: merchant, category: category, amountSpent: amountSpent, date: date, username: username)
     }
     
+    
+    
     // MARK: Storyboard Actions
     
     @IBAction func toolBarCancelButtonTapped(_ sender: UIBarButtonItem) {
@@ -130,6 +133,10 @@ class AddReceiptViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func uploadPhotoButtonTapped(_ sender: UIButton) {
+        imagePickerController.sourceType = .photoLibrary
+        imagePickerController.allowsEditing = false
+        self.present(imagePickerController, animated: true)
+        
     }
     
     @IBAction func toolBarSaveButtonTapped(_ sender: UIBarButtonItem) {
@@ -222,4 +229,13 @@ extension AddReceiptViewController: UIPickerViewDelegate, UIPickerViewDataSource
 
 }
 
-
+extension AddReceiptViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            receiptImageView.image = image
+        } else {
+            NSLog("Error getting image from camera roll")
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
+}
