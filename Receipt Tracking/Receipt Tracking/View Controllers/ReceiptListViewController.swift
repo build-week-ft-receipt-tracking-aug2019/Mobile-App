@@ -83,6 +83,8 @@ class ReceiptListViewController: UIViewController {
             receiptController.fetchReceiptsFromServer() {
             }
         }
+        tableView.reloadData()
+        tableView.reloadInputViews()
     }
 
 
@@ -112,6 +114,20 @@ extension ReceiptListViewController: UITableViewDelegate, UITableViewDataSource 
         return fetchedResultsController.sections?[section].name
     }
     
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        guard let sectionName = fetchedResultsController.sections?[section].name,
+            let items = fetchedResultsController.fetchedObjects else { return ""}
+        var total: Double = 0
+        for item in items {
+            if item.category == sectionName {
+                total += item.amountSpent
+            } else {
+                continue
+            }
+        }
+        return "\(sectionName) Total $\(total)"
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return fetchedResultsController.sections?.count ?? 0
     }
@@ -125,6 +141,13 @@ extension ReceiptListViewController: UITableViewDelegate, UITableViewDataSource 
         let receipt      = fetchedResultsController.object(at: indexPath)
         cell.receipt     = receipt
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let receiptToDelete = fetchedResultsController.object(at: indexPath)
+            receiptController.deleteReceipt(receipt: receiptToDelete)
+        }
     }
 }
 

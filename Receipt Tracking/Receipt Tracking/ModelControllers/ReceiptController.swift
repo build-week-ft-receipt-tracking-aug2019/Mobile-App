@@ -25,10 +25,12 @@ enum PutType: String {
 
 class ReceiptController {
     
-    static let shared = ReceiptController()
+    // MARK: - Properties
     
+    static let shared = ReceiptController()
     let baseURL = URL(string: "https://receipt-tracker-api.herokuapp.com/users")!
     
+    // MARK: - Crud Methods
     
     // Create Receipt
     func createReceipt(merchant: String, category: String, amountSpent: Double, date: Date, username: String) {
@@ -57,20 +59,20 @@ class ReceiptController {
     }
     
     // Delete Receipt
-    func deleteReceipt(receipt: Receipt) {
-        let moc = CoreDataStack.shared.mainContext
-        
-        
+    func deleteReceipt(receipt: Receipt, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         deleteReceiptFromServer(receipt: receipt)
-        moc.delete(receipt)
-        
-        do {
-            try CoreDataStack.shared.save()
-        } catch {
-            NSLog("Error saving context: \(error)")
+        context.performAndWait {
+            context.delete(receipt)
+            
+            do{
+                try CoreDataStack.shared.save(context: context)
+            } catch {
+                NSLog("Error saving context when deleting receipt:\(error)")
+            }
         }
     }
     
+    // Fetch Receipts From Server
     func fetchReceiptsFromServer( completion: @escaping () -> Void = { }) {
         let token: String? = KeychainWrapper.standard.string(forKey: "token")
         
@@ -118,7 +120,7 @@ class ReceiptController {
     }
     
     
-    // Post Receipt
+    // Post Receipt to Server
     func post(postReceipt: PostReceiptRepresentation, completion: @escaping () -> Void = { }) {
         let requestURL: URL = baseURL.appendingPathComponent("receipt")
         var request = URLRequest(url: requestURL)
@@ -169,10 +171,12 @@ class ReceiptController {
             }.resume()
     }
     
+    // Delete Receipt From Server
     func deleteReceiptFromServer(receipt: Receipt, completion: @escaping (Error?) -> Void = { _ in }) {
-        let requestURL: URL = baseURL.appendingPathComponent("receipts")
+        var requestURL: URL = baseURL.appendingPathComponent("receipt")
+        requestURL.appendPathComponent("\(receipt.identifier)")
         var request = URLRequest(url: requestURL)
-        request.httpMethod = HTTPMethod.post.rawValue
+        request.httpMethod = HTTPMethod.delete.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let token: String? = KeychainWrapper.standard.string(forKey: "token")
         
@@ -186,11 +190,11 @@ class ReceiptController {
                 completion(error)
                 return
             }
-            
             completion(nil)
             }.resume()
     }
     
+    // Fetch Single Receipt From Persistant Store
     private func fetchSingleReceiptFromPersistentStore(identifier: Int32, context: NSManagedObjectContext) -> Receipt? {
         let fetchRequest: NSFetchRequest<Receipt> = Receipt.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "identifier == %i", identifier)
