@@ -25,10 +25,22 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kDY-O6-uZl">
                                 <rect key="frame" x="0.0" y="56" width="414" height="666"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="separatorColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" barStyle="black" showsSearchResultsButton="YES" showsBookmarkButton="YES" showsScopeBar="YES" id="fFT-h8-1qV">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <scopeButtonTitles>
+                                        <string>Title</string>
+                                        <string>Title</string>
+                                        <string>Title</string>
+                                        <string>Title</string>
+                                    </scopeButtonTitles>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReceiptCell" rowHeight="80" id="FPs-WN-lOf" customClass="ReceiptTableViewCell" customModule="Receipt_Tracking" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
+                                        <rect key="frame" x="0.0" y="84" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FPs-WN-lOf" id="A6k-7Q-fP8">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="79.5"/>
@@ -86,20 +98,11 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="syU-jF-8MP"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="fFT-h8-1qV">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="35"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fFT-h8-1qV" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="1Xf-AL-RzL"/>
                             <constraint firstItem="kDY-O6-uZl" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="3qc-dP-66z"/>
-                            <constraint firstItem="kDY-O6-uZl" firstAttribute="top" secondItem="fFT-h8-1qV" secondAttribute="bottom" id="5MQ-zl-9iN"/>
-                            <constraint firstItem="fFT-h8-1qV" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="DwA-jm-Rya"/>
-                            <constraint firstItem="fFT-h8-1qV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HVq-ly-3Op"/>
                             <constraint firstItem="kDY-O6-uZl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="XaP-Vr-ev5"/>
-                            <constraint firstItem="kDY-O6-uZl" firstAttribute="top" secondItem="fFT-h8-1qV" secondAttribute="bottom" constant="5" id="iXY-6g-hb4"/>
                             <constraint firstItem="kDY-O6-uZl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="pjI-2u-0ax"/>
                             <constraint firstItem="kDY-O6-uZl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qPj-Ak-oZW"/>
                         </constraints>

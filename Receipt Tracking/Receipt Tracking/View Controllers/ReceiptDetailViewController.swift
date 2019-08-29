@@ -12,6 +12,8 @@ class ReceiptDetailViewController: UIViewController {
 
 	// MARK: - Properties
 	var viewDetails = AddView()
+	var receipts: ReceiptRepresentation?//Receipt?
+
 
 	// Mark: - Outlets
 	@IBOutlet weak var merchantLabelText: UILabel!
@@ -21,9 +23,13 @@ class ReceiptDetailViewController: UIViewController {
 	@IBOutlet weak var imageView: UIImageView!
 	@IBOutlet weak var editButtonLabel: UIBarButtonItem!
 
+
+
+
 	override func viewDidLoad() {
         super.viewDidLoad()
 		setupViews()
+		updateViews()
 		
     }
 
@@ -48,8 +54,25 @@ class ReceiptDetailViewController: UIViewController {
 		viewDetails.imageViewConfiguration(imageView: imageView)
 
 	}
-    
+
+	private func updateViews() {
+
+		var dateFormatter: DateFormatter {
+			let formatter = DateFormatter()
+			formatter.dateFormat = "MMM-dd-yyyy"
+			//formatter.timeZone = TimeZone(secondsFromGMT: secondsFromGMT)
+			return formatter
+		}
 
 
+		guard let date = receipts?.date,
+				let amount = receipts?.amountSpent else { return }
 
+		merchantLabelText.text = receipts?.merchant
+		dateLabelText.text = dateFormatter.string(from: date)
+		priceLabelText.text = String(amount)
+		categoryLabelText.text = receipts?.category
+	}
+
+	
 }
