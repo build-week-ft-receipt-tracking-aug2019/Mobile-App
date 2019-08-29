@@ -11,11 +11,18 @@ import UIKit
 class ReceiptDetailViewController: UIViewController {
 
 	// MARK: - Properties
+    
 	var viewDetails = AddView()
 	var receipt: Receipt?
-
+    let imageController = ImageController.shared
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM dd, yyyy"
+        return formatter
+    }
 
 	// Mark: - Outlets
+    
 	@IBOutlet weak var merchantLabelText: UILabel!
 	@IBOutlet weak var dateLabelText: UILabel!
 	@IBOutlet weak var categoryLabelText: UILabel!
@@ -23,9 +30,8 @@ class ReceiptDetailViewController: UIViewController {
 	@IBOutlet weak var imageView: UIImageView!
 	@IBOutlet weak var editButtonLabel: UIBarButtonItem!
 
-
-
-
+    // MARK: - View LifeCycle
+    
 	override func viewDidLoad() {
         super.viewDidLoad()
 		setupViews()
@@ -33,8 +39,8 @@ class ReceiptDetailViewController: UIViewController {
 		
     }
 
-	
-
+// MARK: - IBActions & Methods
+    
 	private func setupViews() {
 
 		// Formats navigation bar and view background
@@ -56,23 +62,21 @@ class ReceiptDetailViewController: UIViewController {
 	}
 
 	private func updateViews() {
-
-		var dateFormatter: DateFormatter {
-			let formatter = DateFormatter()
-			formatter.dateFormat = "MMM-dd-yyyy"
-			//formatter.timeZone = TimeZone(secondsFromGMT: secondsFromGMT)
-			return formatter
-		}
-
-
-		guard let date = receipt?.date,
-				let amount = receipt?.amountSpent else { return }
-
-		merchantLabelText.text = receipt?.merchant
+        guard let receipt = receipt,
+              let date = receipt.date,
+              let merchant = receipt.merchant else { return }
+        
+        let amountSpent = receipt.amountSpent
+		
+        merchantLabelText.text = merchant
 		dateLabelText.text = dateFormatter.string(from: date)
-		priceLabelText.text = String(amount)
-		categoryLabelText.text = receipt?.category
-	}
+		priceLabelText.text = String(amountSpent)
+		categoryLabelText.text = receipt.category
+    
+        let imageName = imageController.createImageName(from: date, merchant: merchant, amountSpent: amountSpent)
+        print("hereeeeeeeeeeeeeeeeeee in detailview!!!! -> \(imageName)")
 
-	
+        let image = imageController.getSavedImage(named: imageName)
+        imageView.image = image
+	}
 }
