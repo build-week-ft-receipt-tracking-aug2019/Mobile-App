@@ -17,7 +17,6 @@ class ReceiptListViewController: UIViewController {
 	@IBOutlet weak var searchBar: UISearchBar!
     
 	var viewDetails = AddView()
-    var receipts: [ReceiptRepresentation] = []
 	let receiptController = ReceiptController.shared
 
     var user: UserRepresentation {
@@ -74,7 +73,7 @@ class ReceiptListViewController: UIViewController {
         }
 
 		// Change the background color of the table view
-		setupViews()
+		//setupViews()
 		//self.tableView.backgroundColor = UIColor.lightGray
     }
     
@@ -92,9 +91,11 @@ class ReceiptListViewController: UIViewController {
 		if segue.identifier == "ToReceiptDetailSegue" {
 			guard let receiptDetailVC = segue.destination as? ReceiptDetailViewController, let indexPath = tableView.indexPathForSelectedRow else { return }
 
-			let receipt = receipts[indexPath.row] //fetchedResultsController.object(at: indexPath)
+			let receipt = fetchedResultsController.object(at: indexPath)
+
+			receiptDetailVC.receipt = receipt
 		}
-			receiptDetailVC.receipts = receipt
+
 	}
 }
 
@@ -195,13 +196,13 @@ extension ReceiptListViewController: NSFetchedResultsControllerDelegate {
     }
 }
 
-extension ReceiptListViewController: UISearchBarDelegate {
-
-	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-		<#code#>
-	}
-
-	func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-		<#code#>
-	}
-}
+//extension ReceiptListViewController: UISearchBarDelegate {
+//
+//	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//		<#code#>
+//	}
+//
+//	func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+//		<#code#>
+//	}
+//}

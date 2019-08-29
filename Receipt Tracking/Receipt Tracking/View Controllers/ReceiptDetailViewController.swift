@@ -12,7 +12,7 @@ class ReceiptDetailViewController: UIViewController {
 
 	// MARK: - Properties
 	var viewDetails = AddView()
-	var receipts: Receipt?
+	var receipt: Receipt?
 
 
 	// Mark: - Outlets
@@ -65,13 +65,13 @@ class ReceiptDetailViewController: UIViewController {
 		}
 
 
-		guard let date = receipts?.date,
-				let amount = receipts?.amountSpent else { return }
+		guard let date = receipt?.date,
+				let amount = receipt?.amountSpent else { return }
 
-		merchantLabelText.text = receipts?.merchant
+		merchantLabelText.text = receipt?.merchant
 		dateLabelText.text = dateFormatter.string(from: date)
 		priceLabelText.text = String(amount)
-		categoryLabelText.text = receipts?.category
+		categoryLabelText.text = receipt?.category
 	}
 
 	
