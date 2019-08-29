@@ -17,14 +17,16 @@ class AddReceiptViewController: UIViewController, UITextFieldDelegate {
     var categoryPickerData: [Category] = []
     var categoryPicker: UIPickerView! = UIPickerView()
     var datePicker: UIDatePicker! = UIDatePicker()
+    var imagePickerController = UIImagePickerController()
     var receiptController = ReceiptController.shared
+    var imageController = ImageController.shared
     var receipt: Receipt?
     var category: Category?
     var selectedDate: Date?
     var secondsFromGMT: Int { return TimeZone.current.secondsFromGMT() }
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
-        formatter.dateFormat = "MM-dd-yy, h:mm a"
+        formatter.dateFormat = "MMM dd, yyyy"
         formatter.timeZone = TimeZone(secondsFromGMT: secondsFromGMT)
         return formatter
     }
@@ -59,7 +61,7 @@ class AddReceiptViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setViews()
-        
+        imagePickerController.delegate = self
     }
     
     // MARK: - Methods
@@ -90,9 +92,9 @@ class AddReceiptViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func pickerViewCancelTapped() {
-    
+        
         categoryTextField.resignFirstResponder()
-    
+        
     }
     
     // MARK: Date Picker View Toolbar func
@@ -117,29 +119,50 @@ class AddReceiptViewController: UIViewController, UITextFieldDelegate {
             let category = categoryTextField.text,
             !category.isEmpty,
             let date = selectedDate,
-            let username = user.username else { return }
+            let username = user.username,
+            let image = receiptImageView.image else { return }
         let amountSpent = (amountSpentString as NSString).doubleValue
         
         receiptController.createReceipt(merchant: merchant, category: category, amountSpent: amountSpent, date: date, username: username)
+        imageController.saveImage(image: image, from: date, merchant: merchant, amountSpent: amountSpent)
     }
     
-    // MARK: Storyboard Actions
+    // MARK: - IBActions
     
     @IBAction func toolBarCancelButtonTapped(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }
     
     @IBAction func uploadPhotoButtonTapped(_ sender: UIButton) {
+        imagePickerController.allowsEditing = false
+        
+        let actionSheet = UIAlertController(title: "Photo Source", message: "Choose a source", preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action:UIAlertAction) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                self.imagePickerController.sourceType = .camera
+                self.present(self.imagePickerController, animated: true, completion: nil)
+            } else {
+                print("Camera not available")
+            }
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action:UIAlertAction) in
+            self.imagePickerController.sourceType = .photoLibrary
+            self.present(self.imagePickerController, animated: true)
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(actionSheet, animated: true, completion: nil)
     }
     
     @IBAction func toolBarSaveButtonTapped(_ sender: UIBarButtonItem) {
         addReceipt()
         dismiss(animated: true)
     }
-    
-
-    
 }
+
+// MARK: - Extensions
 
 extension AddReceiptViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -217,9 +240,20 @@ extension AddReceiptViewController: UIPickerViewDelegate, UIPickerViewDataSource
         categoryTextField.inputAccessoryView = categoryPickerToolBar
         for category in Category.allCases {
             categoryPickerData.append(category)
+        }
     }
 }
 
+extension AddReceiptViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            receiptImageView.image = image
+        } else {
+            NSLog("Error getting image from camera roll")
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
 }
-
-
