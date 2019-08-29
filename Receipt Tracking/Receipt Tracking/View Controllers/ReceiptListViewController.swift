@@ -15,11 +15,10 @@ class ReceiptListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var searchBar: UISearchBar!
-
     
 	var viewDetails = AddView()
-	let receiptController = ReceiptController.shared
     var receipts: [ReceiptRepresentation] = []
+	let receiptController = ReceiptController.shared
 
     var user: UserRepresentation {
         let moc = CoreDataStack.shared.mainContext
@@ -88,28 +87,14 @@ class ReceiptListViewController: UIViewController {
         tableView.reloadData()
         tableView.reloadInputViews()
     }
-
-
-	// MARK: - Setup views
-	private func setupViews() {
-
-		// Formats navigation bar and view background
-		viewDetails.navBarConfiguration2(navBar: navigationController!.navigationBar)
-		viewDetails.viewConfiguration(view: view)
-		//viewDetails.navBarConfiguration(navBar: navigationController!.navigationBar)
-	}
-
-	private func setupSearchBar() {
-		searchBar.delegate = self
-	}
     
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "ToReceiptDetailSegue" {
 			guard let receiptDetailVC = segue.destination as? ReceiptDetailViewController, let indexPath = tableView.indexPathForSelectedRow else { return }
 
 			let receipt = receipts[indexPath.row] //fetchedResultsController.object(at: indexPath)
-			receiptDetailVC.receipts = receipt
 		}
+			receiptDetailVC.receipts = receipt
 	}
 }
 
