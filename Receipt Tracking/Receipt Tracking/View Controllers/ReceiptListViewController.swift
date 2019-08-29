@@ -14,8 +14,11 @@ class ReceiptListViewController: UIViewController {
     // MARK: - IBOutlets & Properties
 
     @IBOutlet weak var tableView: UITableView!
+
     
-    let receiptController = ReceiptController.shared
+	var viewDetails = AddView()
+	let receiptController = ReceiptController.shared
+    var receipts: [ReceiptRepresentation] = []
     var user: UserRepresentation {
         let moc = CoreDataStack.shared.mainContext
         let request: NSFetchRequest<User> = User.fetchRequest()
@@ -68,6 +71,10 @@ class ReceiptListViewController: UIViewController {
         } else if user.username == nil {
             performSegue(withIdentifier: "LoginViewModalSegue", sender: self)
         }
+
+		// Change the background color of the table view
+		setupViews()
+		//self.tableView.backgroundColor = UIColor.lightGray
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -77,9 +84,25 @@ class ReceiptListViewController: UIViewController {
             }
         }
     }
-    
-    
 
+
+	// MARK: - Setup views
+	private func setupViews() {
+
+		// Formats navigation bar and view background
+		viewDetails.navBarConfiguration2(navBar: navigationController!.navigationBar)
+		viewDetails.viewConfiguration(view: view)
+		//viewDetails.navBarConfiguration(navBar: navigationController!.navigationBar)
+	}
+    
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "ToReceiptDetailSegue" {
+			guard let receiptDetailVC = segue.destination as? ReceiptDetailViewController, let indexPath = tableView.indexPathForSelectedRow else { return }
+
+			let receipt = receipts[indexPath.row] //fetchedResultsController.object(at: indexPath)
+			receiptDetailVC.receipts = receipt
+		}
+	}
 }
 
 // MARK: - Extensions

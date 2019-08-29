@@ -17,6 +17,7 @@ class ReceiptTableViewCell: UITableViewCell {
 	@IBOutlet weak var categoryLabel: UILabel!
 	@IBOutlet weak var amountSpentLabel: UILabel!
 
+	var viewDetails = AddView()
 
 	var receipt: Receipt? {
 		didSet {
@@ -31,15 +32,23 @@ class ReceiptTableViewCell: UITableViewCell {
         return formatter
     }
 
+
 	private func updateViews() {
 		guard let receipt = receipt,
               let date = receipt.date else { return }
        
         let amountString = "$\(receipt.amountSpent)"
 		merchantLabel.text = receipt.merchant
+		merchantLabel.textColor = .receiptLightGreen
 		dateLabel.text = dateFormatter.string(from: date)
 		categoryLabel.text = receipt.category
 		amountSpentLabel.text = amountString
+		amountSpentLabel.textColor = .receiptDarkGreen
+	}
+
+	private func setupViews() {
+
+		viewDetails.textlabelColorsLightGreen(textLabel: amountSpentLabel)
 	}
     
 }
