@@ -19,7 +19,7 @@ class ReceiptTableViewCell: UITableViewCell {
 
 	var viewDetails = AddView()
 
-	var receipt: ReceiptRepresentation? {
+	var receipt: Receipt? {
 		didSet {
 			updateViews()
 		}
@@ -35,10 +35,9 @@ class ReceiptTableViewCell: UITableViewCell {
 
 	private func updateViews() {
 		guard let receipt = receipt,
-              let date = receipt.date,
-               let amount = receipt.amountSpent else { return }
+              let date = receipt.date else { return }
        
-        let amountString = "$\(amount)"
+        let amountString = "$\(receipt.amountSpent)"
 		merchantLabel.text = receipt.merchant
 		merchantLabel.textColor = .receiptLightGreen
 		dateLabel.text = dateFormatter.string(from: date)
