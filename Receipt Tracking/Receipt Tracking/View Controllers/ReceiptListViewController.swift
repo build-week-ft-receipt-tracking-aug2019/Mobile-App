@@ -14,11 +14,13 @@ class ReceiptListViewController: UIViewController {
     // MARK: - IBOutlets & Properties
 
     @IBOutlet weak var tableView: UITableView!
+	@IBOutlet weak var searchBar: UISearchBar!
 
     
 	var viewDetails = AddView()
 	let receiptController = ReceiptController.shared
     var receipts: [ReceiptRepresentation] = []
+
     var user: UserRepresentation {
         let moc = CoreDataStack.shared.mainContext
         let request: NSFetchRequest<User> = User.fetchRequest()
@@ -95,6 +97,10 @@ class ReceiptListViewController: UIViewController {
 		viewDetails.navBarConfiguration2(navBar: navigationController!.navigationBar)
 		viewDetails.viewConfiguration(view: view)
 		//viewDetails.navBarConfiguration(navBar: navigationController!.navigationBar)
+	}
+
+	private func setupSearchBar() {
+		searchBar.delegate = self
 	}
     
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -202,4 +208,15 @@ extension ReceiptListViewController: NSFetchedResultsControllerDelegate {
             break
         }
     }
+}
+
+extension ReceiptListViewController: UISearchBarDelegate {
+
+	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+		<#code#>
+	}
+
+	func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+		<#code#>
+	}
 }

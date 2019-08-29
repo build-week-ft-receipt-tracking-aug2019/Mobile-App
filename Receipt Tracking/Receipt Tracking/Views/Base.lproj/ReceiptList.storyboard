@@ -18,10 +18,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fFT-h8-1qV">
+                            <searchBar contentMode="redraw" fixedFrame="YES" showsCancelButton="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFT-h8-1qV">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="4PE-HS-jmG"/>
+                                </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kDY-O6-uZl">
                                 <rect key="frame" x="0.0" y="40" width="414" height="682"/>
@@ -102,6 +105,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBar" destination="fFT-h8-1qV" id="d3T-co-fbe"/>
                         <outlet property="tableView" destination="kDY-O6-uZl" id="Z3w-Bd-4Tl"/>
                         <segue destination="uEI-7H-bEG" kind="presentation" identifier="LoginViewModalSegue" id="kJZ-Hu-m5C"/>
                     </connections>
