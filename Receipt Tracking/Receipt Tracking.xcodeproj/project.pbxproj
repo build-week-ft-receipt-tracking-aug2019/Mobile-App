@@ -38,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		32A0A69E2317878D0049BD9C /* Receipt Tracking 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Receipt Tracking 4.xcdatamodel"; sourceTree = "<group>"; };
 		32D6B92A23109CFE006E75B2 /* Receipt Tracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Receipt Tracking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		32D6B92D23109CFE006E75B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32D6B92F23109CFE006E75B2 /* ReceiptListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptListViewController.swift; sourceTree = "<group>"; };
@@ -517,11 +518,12 @@
 		32D6B94223141E4C006E75B2 /* Receipt Tracking.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				32A0A69E2317878D0049BD9C /* Receipt Tracking 4.xcdatamodel */,
 				32D6B98C2315BFFC006E75B2 /* Receipt Tracking 3.xcdatamodel */,
 				32D6B97723149F95006E75B2 /* Receipt Tracking 2.xcdatamodel */,
 				32D6B94323141E4C006E75B2 /* Receipt Tracking.xcdatamodel */,
 			);
-			currentVersion = 32D6B98C2315BFFC006E75B2 /* Receipt Tracking 3.xcdatamodel */;
+			currentVersion = 32A0A69E2317878D0049BD9C /* Receipt Tracking 4.xcdatamodel */;
 			path = "Receipt Tracking.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

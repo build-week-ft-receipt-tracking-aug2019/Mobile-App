@@ -16,7 +16,6 @@ class ReceiptListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let receiptController = ReceiptController.shared
-    var receipts: [ReceiptRepresentation] = []
     var user: UserRepresentation {
         let moc = CoreDataStack.shared.mainContext
         let request: NSFetchRequest<User> = User.fetchRequest()
@@ -73,14 +72,8 @@ class ReceiptListViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if let username = user.username,
-            token != nil {
-            receiptController.fetchReceiptsFromServer(username: username) { (result) in
-                guard let receipts = try? result.get() else { return }
-                self.receipts = receipts
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
+        if token != nil {
+            receiptController.fetchReceiptsFromServer() {
             }
         }
     }
@@ -92,21 +85,21 @@ class ReceiptListViewController: UIViewController {
 // MARK: - Extensions
 
 extension ReceiptListViewController: UITableViewDelegate, UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return fetchedResultsController.sections?[section].name
-//    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return fetchedResultsController.sections?[section].name
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1//fetchedResultsController.sections?.count ?? 0
+        return fetchedResultsController.sections?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return receipts.count//fetchedResultsController.sections?[section].numberOfObjects ?? 0
+        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ReceiptCell", for: indexPath) as? ReceiptTableViewCell else { return UITableViewCell() }
-        let receipt      = receipts[indexPath.row]//fetchedResultsController.object(at: indexPath)
+        let receipt      = fetchedResultsController.object(at: indexPath)
         cell.receipt     = receipt
         return cell
     }
