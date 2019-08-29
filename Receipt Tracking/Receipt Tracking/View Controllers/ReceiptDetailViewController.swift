@@ -74,8 +74,6 @@ class ReceiptDetailViewController: UIViewController {
 		categoryLabelText.text = receipt.category
     
         let imageName = imageController.createImageName(from: date, merchant: merchant, amountSpent: amountSpent)
-        print("hereeeeeeeeeeeeeeeeeee in detailview!!!! -> \(imageName)")
-
         let image = imageController.getSavedImage(named: imageName)
         imageView.image = image
 	}

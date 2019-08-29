@@ -125,7 +125,6 @@ class AddReceiptViewController: UIViewController, UITextFieldDelegate {
         
         receiptController.createReceipt(merchant: merchant, category: category, amountSpent: amountSpent, date: date, username: username)
         let imageName = imageController.createImageName(from: date, merchant: merchant, amountSpent: amountSpent)
-        print("hereeeeeeeeeeeeeeeeeee in addview!!!! -> \(imageName)")
         let _ = imageController.saveImage(image: image, fileName: imageName)
     }
     
