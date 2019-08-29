@@ -40,7 +40,7 @@ class ReceiptController {
     
     // Update Receipt
     func updateTour(receipt: Receipt, merchant: String, category: String, amountSpent: Double, date: Date, identifier: Int32, username: String) {
-        let receiptRepresentation = ReceiptRepresentation(merchant: merchant, category: category, amountSpent: amountSpent, date: date, identifier: identifier, username: username)
+        let receiptRepresentation = ReceiptRepresentation(merchant: merchant, category: category, amountSpent: amountSpent, date: date, identifier: identifier)
         receipt.merchant = merchant
         receipt.category = category
         receipt.amountSpent = amountSpent
@@ -72,7 +72,7 @@ class ReceiptController {
         }
     }
     
-    func fetchReceiptsFromServer(username: String, completion: @escaping (Result<[ReceiptRepresentation], NetworkError>) -> Void) {
+    func fetchReceiptsFromServer(username: String, completion: @escaping () -> Void = { }) {
         let token: String? = KeychainWrapper.standard.string(forKey: "token")
         
         let requestURL = baseURL.appendingPathComponent("receipts")
@@ -81,25 +81,25 @@ class ReceiptController {
         if let token = token {
             request.setValue("\(token)", forHTTPHeaderField: "Authorization")
         } else {
-            completion(.failure(.badAuth))
+            completion()
         }
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let response = response as? HTTPURLResponse, response.statusCode != 200 {
                 NSLog("Bad response fetching receipts, response code: \(response.statusCode)")
-                completion(.failure(.badResponse))
+                completion()
                 return
             }
             
             if let error = error {
                 NSLog("Error fetching receipts from server: \(error)")
-                completion(.failure(.otherError(error)))
+                completion()
                 return
             }
             
             guard let data = data else {
                 NSLog("No data returned from fetching receipts from server")
-                completion(.failure(.badData))
+                completion()
                 return
             }
             
@@ -107,12 +107,12 @@ class ReceiptController {
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .iso8601
                 let receiptRepresentations = try decoder.decode([ReceiptRepresentation].self, from: data)
-                completion(.success(receiptRepresentations))
+                completion()
                 self.updateReceipts(with: receiptRepresentations)
                 try CoreDataStack.shared.save()
             } catch {
                 NSLog("Error decoding receipt representations \(error)")
-                completion(.failure(.noDecode))
+                completion()
                 return
             }
             }.resume()
@@ -120,7 +120,7 @@ class ReceiptController {
     
     
     // Post Receipt
-    func post(receipt: ReceiptRepresentation, completion: @escaping () -> Void = { }) {
+    func post(postReceipt: PostReceiptRepresentation, completion: @escaping () -> Void = { }) {
         let requestURL: URL = baseURL.appendingPathComponent("receipt")
         var request = URLRequest(url: requestURL)
         request.httpMethod = HTTPMethod.post.rawValue
@@ -133,9 +133,9 @@ class ReceiptController {
         do {
             let encoder = JSONEncoder()
             encoder.dateEncodingStrategy = .iso8601
-            request.httpBody = try encoder.encode(receipt)
+            request.httpBody = try encoder.encode(postReceipt)
         } catch {
-            NSLog("Error encoding receipt \(receipt): \(error)")
+            NSLog("Error encoding receipt \(postReceipt): \(error)")
             completion()
             return
         }
@@ -152,9 +152,13 @@ class ReceiptController {
                 let receiptID = try JSONDecoder().decode([Int].self, from: data)
                 let moc = CoreDataStack.shared.mainContext
                 moc.performAndWait {
-                    let receipt = Receipt(receiptRepresentation: receipt)
-                    guard let identifier = receiptID.first else { return }
-                    receipt?.identifier = Int32(identifier)
+                    guard let merchant = postReceipt.merchant,
+                          let categoryString = postReceipt.category,
+                          let category = Category.init(rawValue: categoryString),
+                          let amountSpent = postReceipt.amountSpent,
+                          let date = postReceipt.date,
+                          let identifier = receiptID.first else { return }
+                    let receipt = Receipt(merchant: merchant, category: category, amountSpent: amountSpent, date: date, identifier: identifier)
                 }
                 
                 try CoreDataStack.shared.save(context: moc)

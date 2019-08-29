@@ -24,7 +24,7 @@ enum Category: String, CaseIterable, Codable {
 
 extension Receipt {
     
-    @discardableResult convenience init( merchant: String, category: Category, amountSpent: Double, date: Date, identifier: Int32, username: String, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    @discardableResult convenience init( merchant: String, category: Category, amountSpent: Double, date: Date, identifier: Int32, username: String?, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         
         self.merchant    = merchant
@@ -41,14 +41,13 @@ extension Receipt {
             let amountSpent    = receiptRepresentation.amountSpent,
             let date           = receiptRepresentation.date,
             let identifier     = receiptRepresentation.identifier,
-            let category       = Category(rawValue: categoryString),
-            let username       = receiptRepresentation.username else { return nil }
+            let category       = Category(rawValue: categoryString) else { return nil }
         
-        self.init(merchant: merchant, category: category, amountSpent: amountSpent, date: date, identifier: identifier, username: username, context: context)
+        self.init(merchant: merchant, category: category, amountSpent: amountSpent, date: date, identifier: identifier)
     }
     
     var receiptRepresentation: ReceiptRepresentation {
-        return ReceiptRepresentation(merchant: merchant, category: category, amountSpent: amountSpent, date: date, identifier: identifier, username: username)
+        return ReceiptRepresentation(merchant: merchant, category: category, amountSpent: amountSpent, date: date, identifier: identifier)
     }
     
 }

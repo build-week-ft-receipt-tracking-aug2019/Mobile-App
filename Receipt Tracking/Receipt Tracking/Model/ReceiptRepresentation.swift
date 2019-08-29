@@ -15,7 +15,6 @@ struct ReceiptRepresentation: Codable {
     let amountSpent: Double?
     let date: Date?
     let identifier: Int32?
-    let username: String?
     
     enum CodingKeys: String, CodingKey {
         case merchant
@@ -23,7 +22,6 @@ struct ReceiptRepresentation: Codable {
         case amountSpent = "amount_spent"
         case date
         case identifier = "id"
-        case username = "user_username"
     }
 }
 
@@ -44,5 +42,45 @@ func !=(lhs: ReceiptRepresentation, rhs: Receipt) -> Bool {
 }
 
 func !=(lhs: Receipt, rhs: ReceiptRepresentation) -> Bool {
+    return rhs != lhs
+}
+
+struct PostReceiptRepresentation: Codable {
+    
+    let merchant: String?
+    let category: String?
+    let amountSpent: Double?
+    let date: Date?
+    let identifier: Int32?
+    let username: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case merchant
+        case category
+        case amountSpent = "amount_spent"
+        case date
+        case identifier = "id"
+        case username = "user_username"
+    }
+}
+
+func ==(lhs: PostReceiptRepresentation, rhs: Receipt) -> Bool {
+    return lhs.merchant == rhs.merchant &&
+        lhs.category == rhs.category &&
+        lhs.amountSpent == rhs.amountSpent &&
+        lhs.date == rhs.date &&
+        lhs.identifier == rhs.identifier &&
+        lhs.username == rhs.username
+}
+
+func ==(lhs: Receipt, rhs: PostReceiptRepresentation) -> Bool {
+    return rhs == lhs
+}
+
+func !=(lhs: PostReceiptRepresentation, rhs: Receipt) -> Bool {
+    return !(rhs == lhs)
+}
+
+func !=(lhs: Receipt, rhs: PostReceiptRepresentation) -> Bool {
     return rhs != lhs
 }
