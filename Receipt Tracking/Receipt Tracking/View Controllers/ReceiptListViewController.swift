@@ -98,16 +98,17 @@ class ReceiptListViewController: UIViewController {
 		// Formats navigation bar and view background
 		viewDetails.navBarConfiguration2(navBar: navigationController!.navigationBar)
 		viewDetails.viewConfiguration(view: view)
-		viewDetails.navBarConfiguration(navBar: navigationController!.navigationBar)
-
-		viewDetails.tableViewConfiguration(tableView: tableView)
-
-		
-
+		//viewDetails.navBarConfiguration(navBar: navigationController!.navigationBar)
 	}
     
-    
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "ToReceiptDetailSegue" {
+			guard let receiptDetailVC = segue.destination as? ReceiptDetailViewController, let indexPath = tableView.indexPathForSelectedRow else { return }
 
+			let receipt = receipts[indexPath.row] //fetchedResultsController.object(at: indexPath)
+			receiptDetailVC.receipts = receipt
+		}
+	}
 }
 
 // MARK: - Extensions
