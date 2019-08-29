@@ -24,6 +24,10 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>ReceiptList</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>To upload receipt image.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>To upload receipt image.</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

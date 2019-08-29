@@ -133,9 +133,28 @@ class AddReceiptViewController: UIViewController, UITextFieldDelegate, UINavigat
     }
     
     @IBAction func uploadPhotoButtonTapped(_ sender: UIButton) {
-        imagePickerController.sourceType = .photoLibrary
         imagePickerController.allowsEditing = false
-        self.present(imagePickerController, animated: true)
+        
+        let actionSheet = UIAlertController(title: "Photo Source", message: "Choose a source", preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action:UIAlertAction) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                self.imagePickerController.sourceType = .camera
+                self.present(self.imagePickerController, animated: true, completion: nil)
+            } else {
+                print("Camera not available")
+            }
+
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action:UIAlertAction) in
+            self.imagePickerController.sourceType = .photoLibrary
+            self.present(self.imagePickerController, animated: true)
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(actionSheet, animated: true, completion: nil)
+        
+        
+        
         
     }
     
@@ -236,6 +255,9 @@ extension AddReceiptViewController: UIImagePickerControllerDelegate {
         } else {
             NSLog("Error getting image from camera roll")
         }
-        self.dismiss(animated: true, completion: nil)
+        picker.dismiss(animated: true, completion: nil)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
 }
