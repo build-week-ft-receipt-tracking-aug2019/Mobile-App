@@ -19,6 +19,7 @@ class AddReceiptViewController: UIViewController, UITextFieldDelegate, UINavigat
     var datePicker: UIDatePicker! = UIDatePicker()
     var receiptController = ReceiptController.shared
     var imagePickerController = UIImagePickerController()
+    var imageController = ImageController.shared
     var receipt: Receipt?
     var category: Category?
     var selectedDate: Date?
@@ -118,10 +119,12 @@ class AddReceiptViewController: UIViewController, UITextFieldDelegate, UINavigat
             let category = categoryTextField.text,
             !category.isEmpty,
             let date = selectedDate,
-            let username = user.username else { return }
+            let username = user.username,
+            let image = receiptImageView.image else { return }
         let amountSpent = (amountSpentString as NSString).doubleValue
         
         receiptController.createReceipt(merchant: merchant, category: category, amountSpent: amountSpent, date: date, username: username)
+        imageController.saveImage(image: image, from: date, merchant: merchant, amountSpent: amountSpent)
     }
     
     
@@ -136,6 +139,7 @@ class AddReceiptViewController: UIViewController, UITextFieldDelegate, UINavigat
         imagePickerController.allowsEditing = false
         
         let actionSheet = UIAlertController(title: "Photo Source", message: "Choose a source", preferredStyle: .actionSheet)
+        
         actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action:UIAlertAction) in
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
                 self.imagePickerController.sourceType = .camera
@@ -143,12 +147,13 @@ class AddReceiptViewController: UIViewController, UITextFieldDelegate, UINavigat
             } else {
                 print("Camera not available")
             }
-
         }))
+        
         actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action:UIAlertAction) in
             self.imagePickerController.sourceType = .photoLibrary
             self.present(self.imagePickerController, animated: true)
         }))
+        
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         self.present(actionSheet, animated: true, completion: nil)
