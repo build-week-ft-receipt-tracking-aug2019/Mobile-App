@@ -33,20 +33,19 @@ class ReceiptController {
     // Create Receipt
     func createReceipt(merchant: String, category: String, amountSpent: Double, date: Date, username: String) {
         
-        let receiptRepresentation = ReceiptRepresentation(merchant: merchant, category: category, amountSpent: amountSpent, date: date, identifier: nil, username: username)
+        let postReceiptRepresentation = PostReceiptRepresentation(merchant: merchant, category: category, amountSpent: amountSpent, date: date, identifier: nil, username: username)
         
-        post(receipt: receiptRepresentation)
+        post(postReceipt: postReceiptRepresentation)
     }
     
     // Update Receipt
-    func updateTour(receipt: Receipt, merchant: String, category: String, amountSpent: Double, date: Date, identifier: Int32, username: String) {
+    func updateTour(receipt: Receipt, merchant: String, category: String, amountSpent: Double, date: Date, identifier: Int32) {
         let receiptRepresentation = ReceiptRepresentation(merchant: merchant, category: category, amountSpent: amountSpent, date: date, identifier: identifier)
         receipt.merchant = merchant
         receipt.category = category
         receipt.amountSpent = amountSpent
         receipt.date = date
         receipt.identifier = identifier
-        receipt.username = username
         
         do {
             try CoreDataStack.shared.save()
@@ -54,7 +53,7 @@ class ReceiptController {
             NSLog("Error saving context: \(error)")
         }
         
-        post(receipt: receiptRepresentation)
+        //put(receipt: receiptRepresentation)
     }
     
     // Delete Receipt
@@ -72,7 +71,7 @@ class ReceiptController {
         }
     }
     
-    func fetchReceiptsFromServer(username: String, completion: @escaping () -> Void = { }) {
+    func fetchReceiptsFromServer( completion: @escaping () -> Void = { }) {
         let token: String? = KeychainWrapper.standard.string(forKey: "token")
         
         let requestURL = baseURL.appendingPathComponent("receipts")
@@ -158,7 +157,7 @@ class ReceiptController {
                           let amountSpent = postReceipt.amountSpent,
                           let date = postReceipt.date,
                           let identifier = receiptID.first else { return }
-                    let receipt = Receipt(merchant: merchant, category: category, amountSpent: amountSpent, date: date, identifier: identifier)
+                    Receipt(merchant: merchant, category: category, amountSpent: amountSpent, date: date, identifier: Int32(identifier), context: moc)
                 }
                 
                 try CoreDataStack.shared.save(context: moc)
@@ -217,7 +216,6 @@ class ReceiptController {
         receipt.amountSpent = amountSpent
         receipt.date = receiptRepresentation.date
         receipt.identifier = identifier
-        receipt.username = receiptRepresentation.username
     }
     
     private func updateReceipts(with receiptRepresentations: [ReceiptRepresentation], context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {

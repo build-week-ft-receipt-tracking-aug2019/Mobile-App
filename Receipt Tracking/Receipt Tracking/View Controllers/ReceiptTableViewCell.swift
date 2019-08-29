@@ -18,7 +18,7 @@ class ReceiptTableViewCell: UITableViewCell {
 	@IBOutlet weak var amountSpentLabel: UILabel!
 
 
-	var receipt: ReceiptRepresentation? {
+	var receipt: Receipt? {
 		didSet {
 			updateViews()
 		}
@@ -33,10 +33,9 @@ class ReceiptTableViewCell: UITableViewCell {
 
 	private func updateViews() {
 		guard let receipt = receipt,
-              let date = receipt.date,
-               let amount = receipt.amountSpent else { return }
+              let date = receipt.date else { return }
        
-        let amountString = "$\(amount)"
+        let amountString = "$\(receipt.amountSpent)"
 		merchantLabel.text = receipt.merchant
 		dateLabel.text = dateFormatter.string(from: date)
 		categoryLabel.text = receipt.category
