@@ -12,7 +12,7 @@ class ReceiptDetailViewController: UIViewController {
 
 	// MARK: - Properties
 	var viewDetails = AddView()
-	var receipts: ReceiptRepresentation?//Receipt?
+	var receipts: Receipt?
 
 
 	// Mark: - Outlets

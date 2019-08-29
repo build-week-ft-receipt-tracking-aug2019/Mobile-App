@@ -101,7 +101,7 @@ class ReceiptListViewController: UIViewController {
 		if segue.identifier == "ToReceiptDetailSegue" {
 			guard let receiptDetailVC = segue.destination as? ReceiptDetailViewController, let indexPath = tableView.indexPathForSelectedRow else { return }
 
-			let receipt = receipts[indexPath.row] //fetchedResultsController.object(at: indexPath)
+			let receipt = fetchedResultsController.object(at: indexPath)
 			receiptDetailVC.receipts = receipt
 		}
 	}
