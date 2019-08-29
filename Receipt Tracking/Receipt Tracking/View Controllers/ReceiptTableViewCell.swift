@@ -14,7 +14,6 @@ class ReceiptTableViewCell: UITableViewCell {
 	// MARK: - OUTLETS
 	@IBOutlet weak var merchantLabel: UILabel!
 	@IBOutlet weak var dateLabel: UILabel!
-	@IBOutlet weak var categoryLabel: UILabel!
 	@IBOutlet weak var amountSpentLabel: UILabel!
 
 	var viewDetails = AddView()
@@ -27,7 +26,7 @@ class ReceiptTableViewCell: UITableViewCell {
     var secondsFromGMT: Int { return TimeZone.current.secondsFromGMT() }
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
-        formatter.dateFormat = "MMM-dd-yyyy"
+        formatter.dateFormat = "MMM dd, yyyy"
         formatter.timeZone = TimeZone(secondsFromGMT: secondsFromGMT)
         return formatter
     }
@@ -41,7 +40,6 @@ class ReceiptTableViewCell: UITableViewCell {
 		merchantLabel.text = receipt.merchant
 		merchantLabel.textColor = .receiptLightGreen
 		dateLabel.text = dateFormatter.string(from: date)
-		categoryLabel.text = receipt.category
 		amountSpentLabel.text = amountString
 		amountSpentLabel.textColor = .receiptDarkGreen
 	}
