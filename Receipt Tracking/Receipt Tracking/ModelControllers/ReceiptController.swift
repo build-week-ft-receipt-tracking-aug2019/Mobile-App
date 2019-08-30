@@ -9,8 +9,6 @@
 import Foundation
 import CoreData
 
-
-
 enum HTTPMethod: String {
     case get    = "GET"
     case put    = "PUT"
@@ -55,7 +53,7 @@ class ReceiptController {
             NSLog("Error saving context: \(error)")
         }
         
-        //put(receipt: receiptRepresentation)
+        put(receipt: receiptRepresentation)
     }
     
     // Delete Receipt
@@ -119,7 +117,6 @@ class ReceiptController {
             }.resume()
     }
     
-    
     // Post Receipt to Server
     func post(postReceipt: PostReceiptRepresentation, completion: @escaping () -> Void = { }) {
         let requestURL: URL = baseURL.appendingPathComponent("receipt")
@@ -154,11 +151,11 @@ class ReceiptController {
                 let moc = CoreDataStack.shared.mainContext
                 moc.performAndWait {
                     guard let merchant = postReceipt.merchant,
-                          let categoryString = postReceipt.category,
-                          let category = Category.init(rawValue: categoryString),
-                          let amountSpent = postReceipt.amountSpent,
-                          let date = postReceipt.date,
-                          let identifier = receiptID.first else { return }
+                        let categoryString = postReceipt.category,
+                        let category = Category.init(rawValue: categoryString),
+                        let amountSpent = postReceipt.amountSpent,
+                        let date = postReceipt.date,
+                        let identifier = receiptID.first else { return }
                     Receipt(merchant: merchant, category: category, amountSpent: amountSpent, date: date, identifier: Int32(identifier), context: moc)
                 }
                 
@@ -167,6 +164,38 @@ class ReceiptController {
                 NSLog("Error decoding receipt and saving receipt: \(error)")
             }
             
+            completion()
+            }.resume()
+    }
+    
+    // PUT Receipt in Server (Update Receipt)
+    func put(receipt: ReceiptRepresentation, completion: @escaping () -> Void = { }) {
+        guard let identifier = receipt.identifier else { return }
+        
+        let requestURL: URL = baseURL.appendingPathComponent("receipt/\(identifier)")
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = HTTPMethod.put.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let token: String? = KeychainWrapper.standard.string(forKey: "token")
+        
+        if let token = token {
+            request.setValue("\(token)", forHTTPHeaderField: "Authorization")
+        }
+        
+        do {
+            request.httpBody = try JSONEncoder().encode(receipt)
+        } catch {
+            NSLog("Error encoding receipt \(receipt): \(error)")
+            completion()
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                NSLog("Error PUTting tour to server: \(error)")
+                completion()
+                return
+            }
             completion()
             }.resume()
     }
@@ -214,12 +243,12 @@ class ReceiptController {
     
     private func update(receipt: Receipt, receiptRepresentation: ReceiptRepresentation) {
         guard let amountSpent = receiptRepresentation.amountSpent,
-            let identifier = receiptRepresentation.identifier else { return }
-        receipt.merchant = receiptRepresentation.merchant
-        receipt.category = receiptRepresentation.category
-        receipt.amountSpent = amountSpent
-        receipt.date = receiptRepresentation.date
-        receipt.identifier = identifier
+            let identifier    = receiptRepresentation.identifier else { return }
+        receipt.merchant      = receiptRepresentation.merchant
+        receipt.category      = receiptRepresentation.category
+        receipt.amountSpent   = amountSpent
+        receipt.date          = receiptRepresentation.date
+        receipt.identifier    = identifier
     }
     
     private func updateReceipts(with receiptRepresentations: [ReceiptRepresentation], context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {

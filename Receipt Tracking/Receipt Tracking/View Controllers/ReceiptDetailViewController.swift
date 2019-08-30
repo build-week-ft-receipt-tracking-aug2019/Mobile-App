@@ -58,7 +58,6 @@ class ReceiptDetailViewController: UIViewController {
 		viewDetails.textlabelColorsLightGreen(textLabel: categoryLabelText)
 
 		viewDetails.imageViewConfiguration(imageView: imageView)
-
 	}
 
 	private func updateViews() {
@@ -67,10 +66,10 @@ class ReceiptDetailViewController: UIViewController {
               let merchant = receipt.merchant else { return }
         
         let amountSpent = receipt.amountSpent
-		
+		 let amountFormatted = String(format: "$ %.2f", amountSpent)
         merchantLabelText.text = merchant
 		dateLabelText.text = dateFormatter.string(from: date)
-		priceLabelText.text = String(amountSpent)
+		priceLabelText.text = amountFormatted
 		categoryLabelText.text = receipt.category
     
         let imageName = imageController.createImageName(from: date, merchant: merchant, amountSpent: amountSpent)

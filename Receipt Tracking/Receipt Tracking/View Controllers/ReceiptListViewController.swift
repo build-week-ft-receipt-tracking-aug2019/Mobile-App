@@ -117,7 +117,8 @@ extension ReceiptListViewController: UITableViewDelegate, UITableViewDataSource 
                 continue
             }
         }
-        return "\(sectionName) Total $\(total)"
+         let totalFormatted = String(format: "$%.2f", total)
+        return "\(sectionName) Total: \(totalFormatted)"
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
