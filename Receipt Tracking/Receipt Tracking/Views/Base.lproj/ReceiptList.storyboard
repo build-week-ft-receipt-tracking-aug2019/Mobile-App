@@ -61,7 +61,7 @@
                                                 <constraint firstItem="XzZ-R7-Tg6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jBg-G5-5DA" secondAttribute="trailing" constant="8" symbolic="YES" id="tPp-13-Px5"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.1440316016957382" green="0.14545765715807224" blue="0.14545765715807224" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.096928960671054207" green="0.097888653350965638" blue="0.097888653350965638" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <outlet property="amountSpentLabel" destination="XzZ-R7-Tg6" id="L8k-R4-2kO"/>
                                             <outlet property="dateLabel" destination="wWx-cW-KQN" id="uef-Ai-N1Q"/>
