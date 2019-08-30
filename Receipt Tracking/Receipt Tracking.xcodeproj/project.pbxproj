@@ -7,21 +7,72 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3209AB3F231862A5009F0E8E /* ImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3209AB3E231862A5009F0E8E /* ImageController.swift */; };
 		32D6B92E23109CFE006E75B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B92D23109CFE006E75B2 /* AppDelegate.swift */; };
-		32D6B93023109CFE006E75B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B92F23109CFE006E75B2 /* ViewController.swift */; };
-		32D6B93323109CFE006E75B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D6B93123109CFE006E75B2 /* Main.storyboard */; };
+		32D6B93023109CFE006E75B2 /* ReceiptListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B92F23109CFE006E75B2 /* ReceiptListViewController.swift */; };
+		32D6B93323109CFE006E75B2 /* ReceiptList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D6B93123109CFE006E75B2 /* ReceiptList.storyboard */; };
 		32D6B93523109D00006E75B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32D6B93423109D00006E75B2 /* Assets.xcassets */; };
 		32D6B93823109D00006E75B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D6B93623109D00006E75B2 /* LaunchScreen.storyboard */; };
+		32D6B94423141E4C006E75B2 /* Receipt Tracking.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B94223141E4C006E75B2 /* Receipt Tracking.xcdatamodeld */; };
+		32D6B94723142444006E75B2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B94623142444006E75B2 /* CoreDataStack.swift */; };
+		32D6B94923142526006E75B2 /* Receipt+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B94823142526006E75B2 /* Receipt+Convenience.swift */; };
+		32D6B94B23142864006E75B2 /* ReceiptRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B94A23142864006E75B2 /* ReceiptRepresentation.swift */; };
+		32D6B94D23143F99006E75B2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B94C23143F99006E75B2 /* LoginViewController.swift */; };
+		32D6B95023144177006E75B2 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D6B94E23144177006E75B2 /* Login.storyboard */; };
+		32D6B9522314423E006E75B2 /* ReceiptDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B9512314423E006E75B2 /* ReceiptDetailViewController.swift */; };
+		32D6B9552314426F006E75B2 /* ReceiptDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D6B9532314426F006E75B2 /* ReceiptDetail.storyboard */; };
+		32D6B957231442F1006E75B2 /* AddReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B956231442F1006E75B2 /* AddReceiptViewController.swift */; };
+		32D6B95923144382006E75B2 /* AddReceipt.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D6B95823144382006E75B2 /* AddReceipt.storyboard */; };
+		32D6B95B231445F9006E75B2 /* ReceiptController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B95A231445F9006E75B2 /* ReceiptController.swift */; };
+		32D6B97623149DE7006E75B2 /* EditReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B97523149DE7006E75B2 /* EditReceiptViewController.swift */; };
+		32D6B9792314A089006E75B2 /* UserRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B9782314A089006E75B2 /* UserRepresentation.swift */; };
+		32D6B97B2314A145006E75B2 /* User+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B97A2314A145006E75B2 /* User+Convenience.swift */; };
+		32D6B97D2314A2CA006E75B2 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B97C2314A2CA006E75B2 /* UserController.swift */; };
+		32D6B97F2314A404006E75B2 /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B97E2314A404006E75B2 /* KeychainItemAccessibility.swift */; };
+		32D6B9812314A43C006E75B2 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B9802314A43C006E75B2 /* KeychainWrapper.swift */; };
+		32D6B9872314B433006E75B2 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6B9862314B433006E75B2 /* UserDefaultsHelper.swift */; };
+		32D6B9892314B548006E75B2 /* EditReceipt.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D6B9882314B548006E75B2 /* EditReceipt.storyboard */; };
+		3834CCFB23146A2F007CB528 /* ColorKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3834CCFA23146A2F007CB528 /* ColorKey.swift */; };
+		38C00DDA2314BA53002E0B56 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C00DD92314BA53002E0B56 /* AddView.swift */; };
+		38C2012D2314713E00775092 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C2012C2314713E00775092 /* LoginView.swift */; };
+		DD52199F2314723500D64D22 /* ReceiptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD52199E2314723500D64D22 /* ReceiptTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3209AB3E231862A5009F0E8E /* ImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageController.swift; sourceTree = "<group>"; };
+		32A0A69E2317878D0049BD9C /* Receipt Tracking 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Receipt Tracking 4.xcdatamodel"; sourceTree = "<group>"; };
 		32D6B92A23109CFE006E75B2 /* Receipt Tracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Receipt Tracking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		32D6B92D23109CFE006E75B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		32D6B92F23109CFE006E75B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		32D6B93223109CFE006E75B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		32D6B92F23109CFE006E75B2 /* ReceiptListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptListViewController.swift; sourceTree = "<group>"; };
+		32D6B93223109CFE006E75B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ReceiptList.storyboard; sourceTree = "<group>"; };
 		32D6B93423109D00006E75B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32D6B93723109D00006E75B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32D6B93923109D00006E75B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32D6B94323141E4C006E75B2 /* Receipt Tracking.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Receipt Tracking.xcdatamodel"; sourceTree = "<group>"; };
+		32D6B94623142444006E75B2 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		32D6B94823142526006E75B2 /* Receipt+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Receipt+Convenience.swift"; sourceTree = "<group>"; };
+		32D6B94A23142864006E75B2 /* ReceiptRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptRepresentation.swift; sourceTree = "<group>"; };
+		32D6B94C23143F99006E75B2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		32D6B94F23144177006E75B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Receipt Tracking/Views/Base.lproj/Login.storyboard"; sourceTree = "<group>"; };
+		32D6B9512314423E006E75B2 /* ReceiptDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptDetailViewController.swift; sourceTree = "<group>"; };
+		32D6B9542314426F006E75B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Receipt Tracking/Views/Base.lproj/ReceiptDetail.storyboard"; sourceTree = "<group>"; };
+		32D6B956231442F1006E75B2 /* AddReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReceiptViewController.swift; sourceTree = "<group>"; };
+		32D6B95823144382006E75B2 /* AddReceipt.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddReceipt.storyboard; sourceTree = "<group>"; };
+		32D6B95A231445F9006E75B2 /* ReceiptController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptController.swift; sourceTree = "<group>"; };
+		32D6B97523149DE7006E75B2 /* EditReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditReceiptViewController.swift; sourceTree = "<group>"; };
+		32D6B97723149F95006E75B2 /* Receipt Tracking 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Receipt Tracking 2.xcdatamodel"; sourceTree = "<group>"; };
+		32D6B9782314A089006E75B2 /* UserRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepresentation.swift; sourceTree = "<group>"; };
+		32D6B97A2314A145006E75B2 /* User+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Convenience.swift"; sourceTree = "<group>"; };
+		32D6B97C2314A2CA006E75B2 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserController.swift; path = ../Model/UserController.swift; sourceTree = "<group>"; };
+		32D6B97E2314A404006E75B2 /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
+		32D6B9802314A43C006E75B2 /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
+		32D6B9862314B433006E75B2 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
+		32D6B9882314B548006E75B2 /* EditReceipt.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditReceipt.storyboard; sourceTree = "<group>"; };
+		32D6B98C2315BFFC006E75B2 /* Receipt Tracking 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Receipt Tracking 3.xcdatamodel"; sourceTree = "<group>"; };
+		3834CCFA23146A2F007CB528 /* ColorKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorKey.swift; sourceTree = "<group>"; };
+		38C00DD92314BA53002E0B56 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		38C2012C2314713E00775092 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		DD52199E2314723500D64D22 /* ReceiptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +105,102 @@
 		32D6B92C23109CFE006E75B2 /* Receipt Tracking */ = {
 			isa = PBXGroup;
 			children = (
-				32D6B92D23109CFE006E75B2 /* AppDelegate.swift */,
-				32D6B92F23109CFE006E75B2 /* ViewController.swift */,
-				32D6B93123109CFE006E75B2 /* Main.storyboard */,
-				32D6B93423109D00006E75B2 /* Assets.xcassets */,
-				32D6B93623109D00006E75B2 /* LaunchScreen.storyboard */,
-				32D6B93923109D00006E75B2 /* Info.plist */,
+				32D6B94523141E55006E75B2 /* Model */,
+				32D6B95C231445FE006E75B2 /* ModelControllers */,
+				32D6B94123141E15006E75B2 /* Views */,
+				32D6B94023141E0A006E75B2 /* View Controllers */,
+				3834CCFC23146A34007CB528 /* Keys */,
+				32D6B96E23149B63006E75B2 /* Libraries */,
+				32D6B9852314AC4E006E75B2 /* Helpers */,
+				32D6B93F23141DE5006E75B2 /* Resources */,
 			);
 			path = "Receipt Tracking";
+			sourceTree = "<group>";
+		};
+		32D6B93F23141DE5006E75B2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				32D6B92D23109CFE006E75B2 /* AppDelegate.swift */,
+				32D6B93423109D00006E75B2 /* Assets.xcassets */,
+				32D6B93923109D00006E75B2 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		32D6B94023141E0A006E75B2 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				32D6B92F23109CFE006E75B2 /* ReceiptListViewController.swift */,
+				32D6B94C23143F99006E75B2 /* LoginViewController.swift */,
+				32D6B9512314423E006E75B2 /* ReceiptDetailViewController.swift */,
+				32D6B956231442F1006E75B2 /* AddReceiptViewController.swift */,
+				DD52199E2314723500D64D22 /* ReceiptTableViewCell.swift */,
+				32D6B97523149DE7006E75B2 /* EditReceiptViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		32D6B94123141E15006E75B2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				32D6B94E23144177006E75B2 /* Login.storyboard */,
+				32D6B93123109CFE006E75B2 /* ReceiptList.storyboard */,
+				32D6B95823144382006E75B2 /* AddReceipt.storyboard */,
+				32D6B93623109D00006E75B2 /* LaunchScreen.storyboard */,
+				32D6B9532314426F006E75B2 /* ReceiptDetail.storyboard */,
+				32D6B9882314B548006E75B2 /* EditReceipt.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		32D6B94523141E55006E75B2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				32D6B94223141E4C006E75B2 /* Receipt Tracking.xcdatamodeld */,
+				32D6B94623142444006E75B2 /* CoreDataStack.swift */,
+				32D6B94823142526006E75B2 /* Receipt+Convenience.swift */,
+				32D6B94A23142864006E75B2 /* ReceiptRepresentation.swift */,
+				32D6B9782314A089006E75B2 /* UserRepresentation.swift */,
+				32D6B97A2314A145006E75B2 /* User+Convenience.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		32D6B95C231445FE006E75B2 /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+				32D6B95A231445F9006E75B2 /* ReceiptController.swift */,
+				32D6B97C2314A2CA006E75B2 /* UserController.swift */,
+				3209AB3E231862A5009F0E8E /* ImageController.swift */,
+			);
+			path = ModelControllers;
+			sourceTree = "<group>";
+		};
+		32D6B96E23149B63006E75B2 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				32D6B97E2314A404006E75B2 /* KeychainItemAccessibility.swift */,
+				32D6B9802314A43C006E75B2 /* KeychainWrapper.swift */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		32D6B9852314AC4E006E75B2 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				32D6B9862314B433006E75B2 /* UserDefaultsHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3834CCFC23146A34007CB528 /* Keys */ = {
+			isa = PBXGroup;
+			children = (
+				3834CCFA23146A2F007CB528 /* ColorKey.swift */,
+				38C2012C2314713E00775092 /* LoginView.swift */,
+				38C00DD92314BA53002E0B56 /* AddView.swift */,
+			);
+			path = Keys;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,9 +261,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32D6B9552314426F006E75B2 /* ReceiptDetail.storyboard in Resources */,
+				32D6B95023144177006E75B2 /* Login.storyboard in Resources */,
 				32D6B93823109D00006E75B2 /* LaunchScreen.storyboard in Resources */,
+				32D6B95923144382006E75B2 /* AddReceipt.storyboard in Resources */,
 				32D6B93523109D00006E75B2 /* Assets.xcassets in Resources */,
-				32D6B93323109CFE006E75B2 /* Main.storyboard in Resources */,
+				32D6B9892314B548006E75B2 /* EditReceipt.storyboard in Resources */,
+				32D6B93323109CFE006E75B2 /* ReceiptList.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,20 +278,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32D6B93023109CFE006E75B2 /* ViewController.swift in Sources */,
+				DD52199F2314723500D64D22 /* ReceiptTableViewCell.swift in Sources */,
+				32D6B94D23143F99006E75B2 /* LoginViewController.swift in Sources */,
+				32D6B93023109CFE006E75B2 /* ReceiptListViewController.swift in Sources */,
+				32D6B94B23142864006E75B2 /* ReceiptRepresentation.swift in Sources */,
+				32D6B94423141E4C006E75B2 /* Receipt Tracking.xcdatamodeld in Sources */,
+				32D6B97F2314A404006E75B2 /* KeychainItemAccessibility.swift in Sources */,
+				32D6B957231442F1006E75B2 /* AddReceiptViewController.swift in Sources */,
+				32D6B97D2314A2CA006E75B2 /* UserController.swift in Sources */,
+				32D6B9812314A43C006E75B2 /* KeychainWrapper.swift in Sources */,
+				32D6B95B231445F9006E75B2 /* ReceiptController.swift in Sources */,
+				32D6B9872314B433006E75B2 /* UserDefaultsHelper.swift in Sources */,
+				32D6B9792314A089006E75B2 /* UserRepresentation.swift in Sources */,
+				32D6B97B2314A145006E75B2 /* User+Convenience.swift in Sources */,
+				38C00DDA2314BA53002E0B56 /* AddView.swift in Sources */,
+				32D6B97623149DE7006E75B2 /* EditReceiptViewController.swift in Sources */,
+				38C2012D2314713E00775092 /* LoginView.swift in Sources */,
 				32D6B92E23109CFE006E75B2 /* AppDelegate.swift in Sources */,
+				3209AB3F231862A5009F0E8E /* ImageController.swift in Sources */,
+				32D6B94923142526006E75B2 /* Receipt+Convenience.swift in Sources */,
+				32D6B9522314423E006E75B2 /* ReceiptDetailViewController.swift in Sources */,
+				32D6B94723142444006E75B2 /* CoreDataStack.swift in Sources */,
+				3834CCFB23146A2F007CB528 /* ColorKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		32D6B93123109CFE006E75B2 /* Main.storyboard */ = {
+		32D6B93123109CFE006E75B2 /* ReceiptList.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				32D6B93223109CFE006E75B2 /* Base */,
 			);
-			name = Main.storyboard;
+			name = ReceiptList.storyboard;
 			sourceTree = "<group>";
 		};
 		32D6B93623109D00006E75B2 /* LaunchScreen.storyboard */ = {
@@ -157,6 +320,22 @@
 				32D6B93723109D00006E75B2 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		32D6B94E23144177006E75B2 /* Login.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32D6B94F23144177006E75B2 /* Base */,
+			);
+			name = Login.storyboard;
+			sourceTree = "<group>";
+		};
+		32D6B9532314426F006E75B2 /* ReceiptDetail.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32D6B9542314426F006E75B2 /* Base */,
+			);
+			name = ReceiptDetail.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -283,8 +462,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YM84C6XKT7;
-				INFOPLIST_FILE = "Receipt Tracking/Info.plist";
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "$(SRCROOT)/Receipt Tracking/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -301,8 +481,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YM84C6XKT7;
-				INFOPLIST_FILE = "Receipt Tracking/Info.plist";
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "$(SRCROOT)/Receipt Tracking/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -336,6 +517,22 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		32D6B94223141E4C006E75B2 /* Receipt Tracking.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				32A0A69E2317878D0049BD9C /* Receipt Tracking 4.xcdatamodel */,
+				32D6B98C2315BFFC006E75B2 /* Receipt Tracking 3.xcdatamodel */,
+				32D6B97723149F95006E75B2 /* Receipt Tracking 2.xcdatamodel */,
+				32D6B94323141E4C006E75B2 /* Receipt Tracking.xcdatamodel */,
+			);
+			currentVersion = 32A0A69E2317878D0049BD9C /* Receipt Tracking 4.xcdatamodel */;
+			path = "Receipt Tracking.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 32D6B92223109CFE006E75B2 /* Project object */;
 }
