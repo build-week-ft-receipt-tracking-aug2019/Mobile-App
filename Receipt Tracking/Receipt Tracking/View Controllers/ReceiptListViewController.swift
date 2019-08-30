@@ -14,7 +14,6 @@ class ReceiptListViewController: UIViewController {
     // MARK: - IBOutlets & Properties
 
     @IBOutlet weak var tableView: UITableView!
-	@IBOutlet weak var searchBar: UISearchBar!
 
     
 	var viewDetails = AddView()
