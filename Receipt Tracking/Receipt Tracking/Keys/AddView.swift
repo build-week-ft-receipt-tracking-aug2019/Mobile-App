@@ -18,6 +18,18 @@ class AddView {
         
     }
     
+    func tableViewConfiguration(tableView: UITableView) {
+        
+        tableView.sectionIndexColor = .red
+    
+        tableView.backgroundColor = .black
+        
+        
+        
+        tableView.separatorStyle = .singleLine
+        tableView.separatorColor = .black
+    }
+    
     func navBarConfiguration(navBar: UINavigationBar) {
         
         // Setting navigation bar to black
@@ -118,7 +130,6 @@ class AddView {
         // Sets the text label coloe to light green
         textLabel.textColor = .receiptMidGreen
     }
-
     
     func imageViewConfiguration(imageView: UIImageView) {
         // Set background color

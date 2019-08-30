@@ -41,12 +41,14 @@ class ReceiptTableViewCell: UITableViewCell {
 		merchantLabel.textColor = .receiptLightGreen
 		dateLabel.text = dateFormatter.string(from: date)
 		amountSpentLabel.text = amountString
-		amountSpentLabel.textColor = .receiptDarkGreen
+		amountSpentLabel.textColor = .receiptGray
 	}
 
 	private func setupViews() {
 
-		viewDetails.textlabelColorsLightGreen(textLabel: amountSpentLabel)
+		viewDetails.textLabelColorsWhite(textLabel: amountSpentLabel)
+        
+
 	}
     
 }

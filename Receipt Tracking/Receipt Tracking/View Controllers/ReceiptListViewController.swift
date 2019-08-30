@@ -62,6 +62,7 @@ class ReceiptListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setViews()
         tableView.delegate = self
         tableView.dataSource = self
         print("\(token ?? "")")
@@ -74,13 +75,24 @@ class ReceiptListViewController: UIViewController {
             performSegue(withIdentifier: "LoginViewModalSegue", sender: self)
         }
 
-		// Change the background color of the table view
-		self.tableView.backgroundColor = UIColor.lightGray
+        
+    }
+    
+    func setViews() {
+        
+        viewDetails.tableViewConfiguration(tableView: tableView)
+        // Change the background color of the table view
+        tableView.backgroundColor = .black
         viewDetails.navBarConfiguration(navBar: navigationController!.navigationBar)
+        
+        // Change background color of the view
+        viewDetails.viewConfiguration(view: view)
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        setViews()
         if token != nil {
             receiptController.fetchReceiptsFromServer() {
             }
@@ -136,6 +148,18 @@ extension ReceiptListViewController: UITableViewDelegate, UITableViewDataSource 
         let receipt      = fetchedResultsController.object(at: indexPath)
         cell.receipt     = receipt
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+        view.tintColor = .black
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.white
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        view.tintColor = .black
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = .receiptLightGreen
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
