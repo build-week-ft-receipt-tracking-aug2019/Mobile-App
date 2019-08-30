@@ -18,11 +18,8 @@ class EditReceiptViewController: UIViewController, UITextFieldDelegate, UIPicker
     var datePicker: UIDatePicker! = UIDatePicker()
     let imageController = ImageController.shared
     let receiptController = ReceiptController.shared
-    var receipt: Receipt? {
-        didSet {
-            updateViews()
-        }
-    }
+    var receipt: Receipt?
+    var image: UIImage?
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM dd, yyyy"
@@ -43,6 +40,7 @@ class EditReceiptViewController: UIViewController, UITextFieldDelegate, UIPicker
     override func viewDidLoad() {
         super.viewDidLoad()
         setViews()
+        updateViews()
     }
     
     private func setViews() {
@@ -201,18 +199,26 @@ class EditReceiptViewController: UIViewController, UITextFieldDelegate, UIPicker
     
     
     @IBAction func saveBarButtonTapped(_ sender: UIBarButtonItem) {
-        
+        updateReceipt()
+        navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func cancelBarButtonTapped(_ sender: UIBarButtonItem) {
+        navigationController?.popToRootViewController(animated: true)
         dismiss(animated: true, completion: nil)
     }
     
     private func updateViews() {
         guard let receipt = receipt,
-              let receiptDate = receipt.date else { return }
-        merchantTextField.text = receipt.merchant
-        categoryTextField.text = receipt.category
+              let receiptDate = receipt.date,
+              let merchant = receipt.merchant,
+              let category = receipt.category else { return }
+        let imageName = imageController.createImageName(from: receiptDate, merchant: merchant, amountSpent: receipt.amountSpent)
+        if let image = imageController.getSavedImage(named: imageName) {
+            receiptImageView.image = image
+        }
+        merchantTextField.text? = merchant
+        categoryTextField.text? = category
         let amountFormatted = String(format: "$%.2f", receipt.amountSpent)
         amountTextField.text = amountFormatted
         dateTextField.text = dateFormatter.string(from: receiptDate)
@@ -226,13 +232,15 @@ class EditReceiptViewController: UIViewController, UITextFieldDelegate, UIPicker
             !amountSpentString.isEmpty,
             let category = categoryTextField.text,
             !category.isEmpty,
-            let date = selectedDate,
-            let image = receiptImageView.image else { return }
+            let dateString = dateTextField.text,
+            let date = dateFormatter.date(from: dateString) else { return }
         let amountSpent = (amountSpentString as NSString).doubleValue
         let identifier = receipt.identifier
         receiptController.updateReceipt(receipt: receipt, merchant: merchant, category: category, amountSpent: amountSpent, date: date, identifier: identifier)
         let imageName = imageController.createImageName(from: date, merchant: merchant, amountSpent: amountSpent)
-        let _ = imageController.saveImage(image: image, fileName: imageName)
+        if let selecetedImage = receiptImageView.image {
+            let _ = imageController.saveImage(image: selecetedImage, fileName: imageName)
+        }
     }
     
 }

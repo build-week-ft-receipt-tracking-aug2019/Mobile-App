@@ -79,4 +79,13 @@ class ReceiptDetailViewController: UIViewController {
     @IBAction func backBarButtonTapped(_ sender: UIBarButtonItem) {
     dismiss(animated: true, completion: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EditReceiptSegue" {
+            guard let editReceiptVC = segue.destination as? EditReceiptViewController,
+                  let receiptToPass = receipt else { return }
+            
+            editReceiptVC.receipt = receiptToPass
+        }
+    }
 }

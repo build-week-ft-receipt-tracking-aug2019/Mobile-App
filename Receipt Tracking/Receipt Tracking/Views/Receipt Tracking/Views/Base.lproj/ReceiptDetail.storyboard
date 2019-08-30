@@ -135,7 +135,7 @@
                         <barButtonItem key="backBarButtonItem" title="Receipts" id="CbA-0O-oRX"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="VCF-W6-n2O">
                             <connections>
-                                <segue destination="7Qm-wS-AYk" kind="show" id="0qo-mh-cPt"/>
+                                <segue destination="7Qm-wS-AYk" kind="show" identifier="EditReceiptSegue" id="0qo-mh-cPt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
