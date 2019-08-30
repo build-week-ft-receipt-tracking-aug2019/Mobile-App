@@ -48,5 +48,4 @@ extension Receipt {
     var receiptRepresentation: ReceiptRepresentation {
         return ReceiptRepresentation(merchant: merchant, category: category, amountSpent: amountSpent, date: date, identifier: identifier)
     }
-    
 }
