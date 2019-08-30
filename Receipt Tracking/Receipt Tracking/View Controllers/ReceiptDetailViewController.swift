@@ -29,7 +29,7 @@ class ReceiptDetailViewController: UIViewController {
 	@IBOutlet weak var priceLabelText: UILabel!
 	@IBOutlet weak var imageView: UIImageView!
 	@IBOutlet weak var editButtonLabel: UIBarButtonItem!
-
+    
     // MARK: - View LifeCycle
     
 	override func viewDidLoad() {
@@ -49,13 +49,13 @@ class ReceiptDetailViewController: UIViewController {
 		viewDetails.barButtonItemConfiguration(barButton: editButtonLabel)
 		viewDetails.navBarConfiguration(navBar: navigationController!.navigationBar)
 
-		// Formats label for merchant and price labels
-		viewDetails.textLabelColorsWhite(textLabel: merchantLabelText)
-		viewDetails.textLabelColorsWhite(textLabel: priceLabelText)
+//        // Formats label for merchant and price labels
+        viewDetails.textLabelColorsWhite(textLabel: dateLabelText)
+        viewDetails.textLabelColorsWhite(textLabel: categoryLabelText)
 
-		// Formats the date label
-		viewDetails.textlabelColorsLightGreen(textLabel: dateLabelText)
-		viewDetails.textlabelColorsLightGreen(textLabel: categoryLabelText)
+//        // Formats the date label
+        viewDetails.textlabelColorsMidGreen(textLabel: merchantLabelText)
+        viewDetails.textlabelColorsLightGreen(textLabel: priceLabelText)
 
 		viewDetails.imageViewConfiguration(imageView: imageView)
 	}
@@ -76,4 +76,7 @@ class ReceiptDetailViewController: UIViewController {
         let image = imageController.getSavedImage(named: imageName)
         imageView.image = image
 	}
+    @IBAction func backBarButtonTapped(_ sender: UIBarButtonItem) {
+    dismiss(animated: true, completion: nil)
+    }
 }

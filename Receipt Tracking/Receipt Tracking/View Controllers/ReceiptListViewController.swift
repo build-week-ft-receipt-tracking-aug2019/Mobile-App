@@ -76,6 +76,7 @@ class ReceiptListViewController: UIViewController {
 
 		// Change the background color of the table view
 		self.tableView.backgroundColor = UIColor.lightGray
+        viewDetails.navBarConfiguration(navBar: navigationController!.navigationBar)
     }
     
     override func viewDidAppear(_ animated: Bool) {

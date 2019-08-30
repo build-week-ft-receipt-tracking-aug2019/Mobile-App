@@ -101,7 +101,7 @@ class AddView {
 
 	func textLabelColorsWhite(textLabel: UILabel) {
 		// Sets the text label color to white
-		textLabel.textColor = .receiptWhite
+		textLabel.textColor = .receiptGray
 	}
 
 	func textLabelColorsDarkGreen(textLabel: UILabel) {
@@ -114,6 +114,10 @@ class AddView {
 		textLabel.textColor = .receiptLightGreen
 	}
 
+    func textlabelColorsMidGreen(textLabel: UILabel) {
+        // Sets the text label coloe to light green
+        textLabel.textColor = .receiptMidGreen
+    }
 
     
     func imageViewConfiguration(imageView: UIImageView) {
