@@ -71,7 +71,7 @@ class AddReceiptViewController: UIViewController, UITextFieldDelegate {
         addView.barButtonItemConfiguration(barButton: cancelBarButton)
         addView.barButtonItemConfiguration(barButton: saveBarButton)
         addView.imageViewConfiguration(imageView: receiptImageView)
-        //addView.photoUploadButtonConfiguration(button: uploadPhotoButton)
+        addView.photoUploadButtonConfiguration(button: uploadPhotoButton)
         addView.viewConfiguration(view: view)
         addView.toolbarConfiguration(toolbar: toolbar)
         addView.textFieldConfiguration(textField: merchantTextField)
@@ -124,7 +124,8 @@ class AddReceiptViewController: UIViewController, UITextFieldDelegate {
         let amountSpent = (amountSpentString as NSString).doubleValue
         
         receiptController.createReceipt(merchant: merchant, category: category, amountSpent: amountSpent, date: date, username: username)
-        imageController.saveImage(image: image, from: date, merchant: merchant, amountSpent: amountSpent)
+        let imageName = imageController.createImageName(from: date, merchant: merchant, amountSpent: amountSpent)
+        let _ = imageController.saveImage(image: image, fileName: imageName)
     }
     
     // MARK: - IBActions

@@ -13,50 +13,46 @@ class ImageController {
     
     static let shared = ImageController()
     
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM dd yy h mm a"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        return formatter
+    }
+    
     let fileManager = FileManager.default
     let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     
-    func saveImage(image: UIImage, from: Date, merchant: String, amountSpent: Double) {
-        let date = String( Date.timeIntervalSinceReferenceDate )
-        var imageName = date.replacingOccurrences(of: ".", with: "-")
+    func createImageName(from date: Date, merchant: String, amountSpent: Double) -> String {
+        let dateString = dateFormatter.string(from: date)
         let amountSpentString = String(amountSpent)
-        imageName.append(contentsOf: merchant)
-        imageName.append(contentsOf: amountSpentString)
-        let completeImageName = imageName + ".jpg"
-        if let imageData = image.pngData() {
-            do {
-                let filePath = documentsPath.appendingPathComponent(imageName)
-                
-                try imageData.write(to: filePath)
-                
-                print("\(completeImageName) was saved.")
-                
-            } catch let error as NSError {
-                print("\(completeImageName) could not be saved: \(error)")
-                
-            }
-            
-        } else {
-            print("Could not convert UIImage to png data.")
+        var imageName = dateString + merchant + amountSpentString
+         imageName = imageName.replacingOccurrences(of: ".", with: "")
+        let completeImageName = imageName.replacingOccurrences(of: " ", with: "")
+        return completeImageName
+    }
+    
+    func saveImage(image: UIImage, fileName: String) -> Bool {
+        guard let data = image.jpegData(compressionQuality: 0.1) ?? image.pngData() else {
+            return false
+        }
+        guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL else {
+            return false
+        }
+        do {
+            try data.write(to: directory.appendingPathComponent("\(fileName).png")!)
+            return true
+        } catch {
+            print(error.localizedDescription)
+            return false
         }
     }
     
-    func fetchImage(imageName: String) -> UIImage? {
-        let imagePath = documentsPath.appendingPathComponent(imageName).path
-        
-        guard fileManager.fileExists(atPath: imagePath) else {
-            print("Image does not exist at path: \(imagePath)")
-            
-            return nil
+    func getSavedImage(named: String) -> UIImage? {
+        if let dir = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
+            return UIImage(contentsOfFile: URL(fileURLWithPath: dir.absoluteString).appendingPathComponent(named).path)
         }
-        
-        if let imageData = UIImage(contentsOfFile: imagePath) {
-            return imageData
-        } else {
-            print("UIImage could not be created.")
-            
-            return nil
-        }
+        return nil
     }
     
     func deleteImage(imageName: String) {

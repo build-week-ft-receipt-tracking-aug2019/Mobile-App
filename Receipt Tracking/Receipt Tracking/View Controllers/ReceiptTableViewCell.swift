@@ -36,7 +36,7 @@ class ReceiptTableViewCell: UITableViewCell {
 		guard let receipt = receipt,
               let date = receipt.date else { return }
        
-        let amountString = "$\(receipt.amountSpent)"
+        let amountString = String(format: "$ %.2f", receipt.amountSpent)
 		merchantLabel.text = receipt.merchant
 		merchantLabel.textColor = .receiptLightGreen
 		dateLabel.text = dateFormatter.string(from: date)
