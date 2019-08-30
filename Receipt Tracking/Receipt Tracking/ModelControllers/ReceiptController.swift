@@ -39,7 +39,7 @@ class ReceiptController {
     }
     
     // Update Receipt
-    func updateTour(receipt: Receipt, merchant: String, category: String, amountSpent: Double, date: Date, identifier: Int32) {
+    func updateReceipt(receipt: Receipt, merchant: String, category: String, amountSpent: Double, date: Date, identifier: Int32) {
         let receiptRepresentation = ReceiptRepresentation(merchant: merchant, category: category, amountSpent: amountSpent, date: date, identifier: identifier)
         receipt.merchant = merchant
         receipt.category = category

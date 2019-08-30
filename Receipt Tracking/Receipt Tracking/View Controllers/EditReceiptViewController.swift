@@ -11,12 +11,24 @@ import UIKit
 class EditReceiptViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var addView = AddView()
-    
     var categoryPickerData: [String] = []
-    
     var categoryPicker: UIPickerView! = UIPickerView()
-    
+    var category: Category?
+    var selectedDate: Date?
     var datePicker: UIDatePicker! = UIDatePicker()
+    let imageController = ImageController.shared
+    let receiptController = ReceiptController.shared
+    var receipt: Receipt? {
+        didSet {
+            updateViews()
+        }
+    }
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM dd, yyyy"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        return formatter
+    }
     
     @IBOutlet weak var receiptImageView: UIImageView!
     @IBOutlet weak var editPhotoButton: UIButton!
@@ -31,7 +43,6 @@ class EditReceiptViewController: UIViewController, UITextFieldDelegate, UIPicker
     override func viewDidLoad() {
         super.viewDidLoad()
         setViews()
-        
     }
     
     private func setViews() {
@@ -102,29 +113,30 @@ class EditReceiptViewController: UIViewController, UITextFieldDelegate, UIPicker
     // MARK: Category Picker View Toolbar func
     
     @objc func pickerViewDoneTapped() {
-        
-        // Set up object to be saved
+        category = Category(rawValue: categoryPickerData[categoryPicker.selectedRow(inComponent: 0)])
+        if let category = category {
+            categoryTextField.text = category.rawValue
+        }
+        categoryTextField.resignFirstResponder()
         
     }
     
     @objc func pickerViewCancelTapped() {
-        
         categoryTextField.resignFirstResponder()
-        
     }
     
     // MARK: Date Picker View Toolbar func
     
     @objc func datePickerViewDoneTapped() {
-        
-        // Set up object to be saved
-        
+        selectedDate = datePicker.date
+        if let selectedDate = selectedDate {
+            dateTextField.text = dateFormatter.string(from: selectedDate)
+        }
+        dateTextField.resignFirstResponder()
     }
     
     @objc func datePickerViewCancelTapped() {
-        
         dateTextField.resignFirstResponder()
-        
     }
     
     // MARK: Category Picker Data Source
@@ -134,17 +146,12 @@ class EditReceiptViewController: UIViewController, UITextFieldDelegate, UIPicker
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        
         return categoryPickerData.count
-        
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        
         return categoryPickerData[row]
-        
     }
-    
     
     public func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         let titleData = categoryPickerData[row]
@@ -169,10 +176,7 @@ class EditReceiptViewController: UIViewController, UITextFieldDelegate, UIPicker
             } else {
                 let alert =  UIAlertController(title: "Camera Unavailable", message: "We were unable to gain access to your camera.", preferredStyle: .alert)
                 self.present(alert, animated: true, completion: nil)
-                
             }
-            
-            
         }))
         actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action: UIAlertAction) in
             imagePicker.sourceType = .photoLibrary
@@ -181,7 +185,6 @@ class EditReceiptViewController: UIViewController, UITextFieldDelegate, UIPicker
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil ))
         
         present(actionSheet, animated: true, completion: nil)
-        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -203,6 +206,33 @@ class EditReceiptViewController: UIViewController, UITextFieldDelegate, UIPicker
     
     @IBAction func cancelBarButtonTapped(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    private func updateViews() {
+        guard let receipt = receipt,
+              let receiptDate = receipt.date else { return }
+        merchantTextField.text = receipt.merchant
+        categoryTextField.text = receipt.category
+        let amountFormatted = String(format: "$%.2f", receipt.amountSpent)
+        amountTextField.text = amountFormatted
+        dateTextField.text = dateFormatter.string(from: receiptDate)
+    }
+    
+    private func updateReceipt() {
+        guard let receipt = receipt,
+            let merchant = merchantTextField.text,
+            !merchant.isEmpty,
+            let amountSpentString = amountTextField.text,
+            !amountSpentString.isEmpty,
+            let category = categoryTextField.text,
+            !category.isEmpty,
+            let date = selectedDate,
+            let image = receiptImageView.image else { return }
+        let amountSpent = (amountSpentString as NSString).doubleValue
+        let identifier = receipt.identifier
+        receiptController.updateReceipt(receipt: receipt, merchant: merchant, category: category, amountSpent: amountSpent, date: date, identifier: identifier)
+        let imageName = imageController.createImageName(from: date, merchant: merchant, amountSpent: amountSpent)
+        let _ = imageController.saveImage(image: image, fileName: imageName)
     }
     
 }
