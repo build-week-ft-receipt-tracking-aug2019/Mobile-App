@@ -18,13 +18,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fFT-h8-1qV">
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="fFT-h8-1qV">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kDY-O6-uZl">
-                                <rect key="frame" x="0.0" y="40" width="414" height="682"/>
+                                <rect key="frame" x="0.0" y="56" width="414" height="666"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -85,9 +84,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="kDY-O6-uZl" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="3qc-dP-66z"/>
-                            <constraint firstItem="kDY-O6-uZl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="XaP-Vr-ev5"/>
+                            <constraint firstItem="kDY-O6-uZl" firstAttribute="top" secondItem="fFT-h8-1qV" secondAttribute="bottom" id="RBM-Od-lTt"/>
+                            <constraint firstItem="fFT-h8-1qV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TlP-IG-RCH"/>
+                            <constraint firstItem="fFT-h8-1qV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="dx6-QL-Q82"/>
                             <constraint firstItem="kDY-O6-uZl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="pjI-2u-0ax"/>
                             <constraint firstItem="kDY-O6-uZl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qPj-Ak-oZW"/>
+                            <constraint firstItem="fFT-h8-1qV" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="uoQ-zi-3Bq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

@@ -15,9 +15,12 @@ class ReceiptListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var searchBar: UISearchBar!
+
     
 	var viewDetails = AddView()
 	let receiptController = ReceiptController.shared
+	var receipt: Receipt?
+
 
     var user: UserRepresentation {
         let moc = CoreDataStack.shared.mainContext
@@ -73,8 +76,7 @@ class ReceiptListViewController: UIViewController {
         }
 
 		// Change the background color of the table view
-		//setupViews()
-		//self.tableView.backgroundColor = UIColor.lightGray
+		self.tableView.backgroundColor = UIColor.lightGray
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -196,13 +198,7 @@ extension ReceiptListViewController: NSFetchedResultsControllerDelegate {
     }
 }
 
-//extension ReceiptListViewController: UISearchBarDelegate {
-//
-//	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//		<#code#>
-//	}
-//
-//	func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-//		<#code#>
-//	}
-//}
+
+
+
+
